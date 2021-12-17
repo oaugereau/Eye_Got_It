@@ -1,0 +1,77 @@
+.. _reportValidation:
+
+Report Validation
+*****************
+
+Parameters
+==========
+
+Report validation is based on three parameters :
+
+- Percentage of fixations whose centre is in a word : "Fixations in words" (Threshold 80%)
+
+- Percentage of words with at least one fixation : "Words with at least a fixation" (Threshold 60%)
+
+- Percentage of eyegaze in fixation's circles : "Eyegazes in fixation" (Threshold 70%)
+
+Those three parameters are displayed at the end of report generation in a result window. Thresholds are defined to determine whether the data is finally valid or not. If a paramater value is under his threshold, data is considered not valid.
+
+.. figure:: images/fonctionnementTraitement.png
+   :alt: Traitement
+   :name: Traitement Validation
+   :width: 100.0%
+
+   Traitement des données
+
+Examples
+========
+
+.. figure:: images/BadData.png
+   :alt: Bad Data
+   :name: BadData
+   :width: 100.0%
+
+   Bad data visualization
+
+Results
+
+.. figure:: images/reportBadRecord.png
+   :alt: Report Mauvais Record
+   :name: Report Mauvais Record
+   :width: 50.0%
+
+   Report Mauvais Record
+
+
+.. figure:: images/ValidData.jpg
+   :alt: Valid Data
+   :name: ValidData
+   :width: 100.0%
+
+   Bad data visualization
+
+Results
+
+.. figure:: images/reportGoodRecord.png
+   :alt: Report Good Record 1
+   :name: Report Good Record 1
+   :width: 50.0%
+
+   Report Good Record
+
+
+.. figure:: images/fixationsPerfectRecord.png
+   :alt: Good Record
+   :name: Good Record
+   :width: 100.0%
+
+   Good Record
+
+Results
+
+.. figure:: images/reportPerfectRecord.png
+   :alt: Report Good Record
+   :name: Report Good Record
+   :width: 50.0%
+
+   Report Good Record

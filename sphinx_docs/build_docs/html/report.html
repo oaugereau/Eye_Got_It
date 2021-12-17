@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Mode &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Parameters" href="parameters.html" />
+    <link rel="prev" title="Simulation Mode" href="simulation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Report Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#data-processing">Data Processing</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#eye-tracker">Eye Tracker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#words-coordinates">Words coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#video-processing">Video Processing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#action-units">Action Units</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#export-report">Export Report</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Report Mode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/report.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="report-mode">
+<span id="report"></span><h1>Report Mode<a class="headerlink" href="#report-mode" title="Permalink to this headline"></a></h1>
+<figure class="align-default" id="reportconfigwindows">
+<a class="reference internal image-reference" href="_images/report_config.png"><img alt="Report Config" src="_images/report_config.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Report Config Windows</span><a class="headerlink" href="#reportconfigwindows" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the Report Mode (<a class="reference internal" href="#reportconfigwindows"><span class="std std-numref">Fig. 7</span></a>) the user can select the user, the session and the record for wich
+he want to create a report.
+The user can generate only one report or all report in the session of the user. Same with the Eye Tracker algorithm and Machine learning.</p>
+<p>If “Open the folder at the end” is selected, the report folder will be
+opened when the generation of the report is finished.</p>
+<p>If the user want to regenerate all the report, it can select “delete folder before report”. If it doesn’t want or just want to update the report, the user must not select it.</p>
+<p>If you want to process the action units, you can check them and edit them with the button “Check Action Units”. For more information, please see <a class="reference internal" href="actionUnits.html#actionunits"><span class="std std-ref">Action units</span></a> section.</p>
+<section id="data-processing">
+<span id="reportdataprocessing"></span><h2>Data Processing<a class="headerlink" href="#data-processing" title="Permalink to this headline"></a></h2>
+<section id="eye-tracker">
+<span id="reporteyetracker"></span><h3>Eye Tracker<a class="headerlink" href="#eye-tracker" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="eyetrackerscreenshot">
+<a class="reference internal image-reference" href="_images/EyeTracker_0.jpg"><img alt="EyeTracker" src="_images/EyeTracker_0.jpg" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">EyeTracker</span><a class="headerlink" href="#eyetrackerscreenshot" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To create gazes and fixations (<a class="reference internal" href="#eyetrackerscreenshot"><span class="std std-numref">Fig. 8</span></a>) we use the Buscher and Nystrom algorithm. For
+more information go to the <a class="reference internal" href="eyeTracker.html#eyetrackeralgo"><span class="std std-ref">Eye Tracker Algorithm</span></a> in <a class="reference internal" href="eyeTracker.html#eyetracker"><span class="std std-ref">Eye Tracker</span></a> section.</p>
+</section>
+<section id="words-coordinates">
+<span id="reportwordscoordinates"></span><h3>Words coordinates<a class="headerlink" href="#words-coordinates" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="wordcoordonatescreenshot">
+<a class="reference internal image-reference" href="_images/Word_Page_0.jpg"><img alt="Word Coordonate" src="_images/Word_Page_0.jpg" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Word Coordonate</span><a class="headerlink" href="#wordcoordonatescreenshot" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We export for each page the words position (<a class="reference internal" href="#wordcoordonatescreenshot"><span class="std std-numref">Fig. 9</span></a>).</p>
+</section>
+<section id="video-processing">
+<span id="reportvideoprocessing"></span><h3>Video Processing<a class="headerlink" href="#video-processing" title="Permalink to this headline"></a></h3>
+<p>In the output folder, four files are created and one folder as well :</p>
+<ul class="simple">
+<li><p>video_aligned/</p></li>
+<li><p>video.avi</p></li>
+<li><p>video.csv</p></li>
+<li><p>video.hog</p></li>
+<li><p>video_of_details.txt</p></li>
+</ul>
+<p>video_of_details.txt content :</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">:</span><span class="n">webcam</span>
+<span class="n">Camera</span> <span class="n">parameters</span><span class="p">:</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">320</span><span class="p">,</span><span class="mi">240</span>
+<span class="n">Output</span> <span class="n">HOG</span><span class="p">:</span><span class="n">video</span><span class="o">.</span><span class="n">hog</span>
+<span class="n">Output</span> <span class="n">video</span><span class="p">:</span><span class="n">video</span><span class="o">.</span><span class="n">avi</span>
+<span class="n">Output</span> <span class="n">aligned</span> <span class="n">directory</span><span class="p">:</span><span class="n">video_aligned</span>
+<span class="n">Output</span> <span class="n">csv</span><span class="p">:</span><span class="n">video</span><span class="o">.</span><span class="n">csv</span>
+<span class="n">Gaze</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">AUs</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Landmarks</span> <span class="mi">2</span><span class="n">D</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Landmarks</span> <span class="mi">3</span><span class="n">D</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Pose</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">Shape</span> <span class="n">parameters</span><span class="p">:</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The folder “video_aligned/” contain the extraction of
+aligned faces from the video (<a class="reference internal" href="#openfacealignedface"><span class="std std-numref">Fig. 10</span></a> ).</p>
+<figure class="align-default" id="openfacealignedface">
+<a class="reference internal image-reference" href="_images/frame_det_00_000001.jpg"><img alt="Video Aligned face" src="_images/frame_det_00_000001.jpg" style="width: 25.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Video Aligned face</span><a class="headerlink" href="#openfacealignedface" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The “video.hog” (<a class="reference internal" href="#openfacehog"><span class="std std-numref">Fig. 11</span></a>) is written as a binary file (for
+space consideration) and can be read by matlab script for example.</p>
+<figure class="align-default" id="openfacehog">
+<a class="reference internal image-reference" href="_images/hog_features.png"><img alt="Hog file" src="_images/hog_features.png" style="width: 25.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Hog file</span><a class="headerlink" href="#openfacehog" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The “video.avi” video file show image peer image the
+head and eyes position in 3D space (<a class="reference internal" href="#openfacevideo"><span class="std std-numref">Fig. 12</span></a>).</p>
+<figure class="align-default" id="openfacevideo">
+<a class="reference internal image-reference" href="_images/vlcsnap-2021-05-11-14h50m15s383.png"><img alt="Video processed" src="_images/vlcsnap-2021-05-11-14h50m15s383.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Video processed</span><a class="headerlink" href="#openfacevideo" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For more information about video processing, see <a class="reference internal" href="videoProcess.html#videoprocessing"><span class="std std-ref">Video processing</span></a> .</p>
+</section>
+<section id="action-units">
+<span id="reportactionunits"></span><h3>Action Units<a class="headerlink" href="#action-units" title="Permalink to this headline"></a></h3>
+<p>The action Units detected are saved in the “action_units” folder in “video_processed” folder in the report folder, it contains all the emotions detected and all Video Aligned face corresponding.</p>
+<p>For more information, please see <a class="reference internal" href="actionUnits.html#actionunits"><span class="std std-ref">Action units</span></a> section.</p>
+</section>
+<section id="export-report">
+<span id="reportexportreport"></span><h3>Export Report<a class="headerlink" href="#export-report" title="Permalink to this headline"></a></h3>
+<p>At the end of the report, a file named “Report.txt” is created. It
+contain all the informations about the simulation, the MCQ answer with a score and more informations like the
+time read, the user informations, …</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view an Example<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>Report : 2021_04_23_09_19_11
+
+Screen Resolution :
+   Screen width : 1920
+   Screen heigth : 1080
+
+Offset coordinate :
+   x0 : 277
+   y0 : 215
+
+User :
+   Name : Yoda Master
+   Birthday : 26/4/1200
+   Genre : Male
+   Level : C2
+   Toeic : 1000
+   Country : Galaxy far, far away
+
+User Data :
+Audio : True
+Video : True
+EyeTracker : True
+
+Text :
+Title : A_Happy_Visitor.Beginner.txt
+Page Read : 3
+
+Time Read :
+Page 0 : 42884
+Page 1 : 31153
+Page 2 : 2817
+
+UNIX Time :
+Start : 1619162358158
+Page 0 : 1619162401042
+Page 1 : 1619162432195
+Stop : 1619162435012
+
+
+UNIX Time Start
+Start Audio : 1619162358569
+Start Video : 1619162358307
+Start Eye Tracker Eye : 1619162358180
+Start Eye Tracker Head: 1619162358167
+
+Video :
+   Time video : 0:01:16.500000
+   Size video : 320x240
+   FPS : 30.0
+   Total Frame : 2295
+
+MCQ :
+
+QUESTION 1 : What is at the door of the house?
+USER ANSWER : a dog
+RIGHT ANSWERS
+
+QUESTION 2 : What happens at the end of the story?
+USER ANSWER : Anna keeps the dog.
+RIGHT ANSWERS
+
+QUESTION 3 : Is the dog dry or wet?
+USER ANSWER : The dog is wet.
+RIGHT ANSWERS
+
+QUESTION 4 : What day of the week is it in the story?
+USER ANSWER : Thursday
+RIGHT ANSWERS
+
+Score : 10.0/10
+</pre></div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simulation.html" class="btn btn-neutral float-left" title="Simulation Mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="parameters.html" class="btn btn-neutral float-right" title="Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

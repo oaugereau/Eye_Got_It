@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Compilation &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Simulation Technical" href="simulationTechnical.html" />
+    <link rel="prev" title="Eye-voice Span" href="EyeVoiceSpan.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Compilation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#before-compilation">Before Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-an-exe-file">Generate an exe file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-an-installer">Generate an Installer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#error-python-import">Error python import</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Compilation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/compilation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="compilation">
+<span id="id1"></span><h1>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"></a></h1>
+<section id="before-compilation">
+<h2>Before Compilation<a class="headerlink" href="#before-compilation" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Make sure that the new version not containing any bug =) .</p></li>
+<li><p>Edit the ChangeLog with the new version and new feature.</p></li>
+<li><p>Edit the version number and set the initial_setup to “True” in the “config.ini” file (see <a class="reference internal" href="parameters.html#parametersconfigfile"><span class="std std-ref">Configuration file</span></a>).</p></li>
+<li><p>Create a backup named config.ini.bak (It will loaded if the config.ini is corrupted).</p></li>
+<li><p>Edit if necessary the Pyinstaller script “Main.spec” to add new files/folders or hidden dependencies.</p></li>
+<li><p>Please edit the MyAppVersion to the new Eye Got It version and the Location if necessary in the Innot Setup script (setup.iss).</p></li>
+<li><p>Don’t forget to edit the documentation version and copy build documentation in Eye Got It documentation folder (See <a class="reference internal" href="documentation.html#documentation"><span class="std std-ref">Documentation</span></a> for more informations).</p></li>
+</ul>
+</section>
+<section id="generate-an-exe-file">
+<span id="compilationexe"></span><h2>Generate an exe file<a class="headerlink" href="#generate-an-exe-file" title="Permalink to this headline"></a></h2>
+<p>To generate an exe file, we use pyinstaller. Please see the <a class="reference internal" href="requirement.html#requirementpyinstaller"><span class="std std-ref">Pyinstaller</span></a> in <a class="reference internal" href="requirement.html#requirementcompilation"><span class="std std-ref">Compilation</span></a> section for the installation.</p>
+<p>We created a spec file of Main.py called Main.spec (see at the end of this page).</p>
+<p>Inside we declare the pathex, the file data, please see the <a class="reference external" href="https://pyinstaller.readthedocs.io/en/stable/">docs html</a> or the <a class="reference external" href="https://readthedocs.org/projects/pyinstaller/downloads/pdf/stable/">doc pdf</a> .</p>
+<p>To create an exe file run <code class="docutils literal notranslate"><span class="pre">pyinstaller Main.spec</span></code> or if you are multiple python version : <code class="docutils literal notranslate"><span class="pre">py</span> <span class="pre">-X.X</span> <span class="pre">-m</span> <span class="pre">pyinstaller</span> <span class="pre">Main.spec</span></code> (where X.X is the python version).</p>
+<p>If you error during the compilation, try to remove the build folder.</p>
+<p>After that you will have two folders created :</p>
+<p>Eye Got It</p>
+<ul class="simple">
+<li><p>build =&gt; compilation.</p></li>
+<li><p>dist =&gt; exe file result of the compilation.</p></li>
+</ul>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the pyinstaller script<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="execode">
+<div class="code-block-caption"><span class="caption-number">Listing 7 </span><span class="caption-text">Pyinstaller Code</span><a class="headerlink" href="#execode" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1"># -*- mode: python ; coding: utf-8 -*-</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="n">block_cipher</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="n">a</span> <span class="o">=</span> <span class="n">Analysis</span><span class="p">([</span><span class="s1">&#39;eye_got_it/Main.py&#39;</span><span class="p">],</span>
+<span class="linenos"> 7</span>             <span class="n">pathex</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;eye_got_it/eye_got_it&#39;</span><span class="p">],</span>
+<span class="linenos"> 8</span>             <span class="n">binaries</span><span class="o">=</span><span class="p">[],</span>
+<span class="linenos"> 9</span>             <span class="n">datas</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;eye_got_it/docs&#39;</span><span class="p">,</span><span class="s1">&#39;docs&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/eyeTracker&#39;</span><span class="p">,</span><span class="s1">&#39;eyeTracker&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/eyeTrackerPro&#39;</span><span class="p">,</span><span class="s1">&#39;eyeTrackerPro&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/model&#39;</span><span class="p">,</span><span class="s1">&#39;model&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/opencv&#39;</span><span class="p">,</span><span class="s1">&#39;opencv&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/openFace&#39;</span><span class="p">,</span><span class="s1">&#39;openFace&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/Pictures&#39;</span><span class="p">,</span><span class="s1">&#39;Pictures&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/actionUnits.ini&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/config.ini&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/config.ini.bak&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it.ico&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),(</span><span class="s1">&#39;Changelog.txt&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">),(</span><span class="s1">&#39;eye_got_it/README.txt&#39;</span><span class="p">,</span><span class="s1">&#39;.&#39;</span><span class="p">)],</span>
+<span class="linenos">10</span>             <span class="n">hiddenimports</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;sklearn.neighbors._typedefs&#39;</span><span class="p">,</span><span class="s1">&#39;sklearn.utils._weight_vector&#39;</span><span class="p">,</span><span class="s1">&#39;sklearn.neighbors._typedefs&#39;</span><span class="p">,</span><span class="s1">&#39;sklearn.neighbors._quad_tree&#39;</span><span class="p">],</span>
+<span class="linenos">11</span>             <span class="n">hookspath</span><span class="o">=</span><span class="p">[],</span>
+<span class="linenos">12</span>             <span class="n">runtime_hooks</span><span class="o">=</span><span class="p">[],</span>
+<span class="linenos">13</span>             <span class="n">excludes</span><span class="o">=</span><span class="p">[],</span>
+<span class="linenos">14</span>             <span class="n">win_no_prefer_redirects</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">15</span>             <span class="n">win_private_assemblies</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">16</span>             <span class="n">cipher</span><span class="o">=</span><span class="n">block_cipher</span><span class="p">,</span>
+<span class="linenos">17</span>             <span class="n">noarchive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="linenos">18</span><span class="n">pyz</span> <span class="o">=</span> <span class="n">PYZ</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">pure</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">zipped_data</span><span class="p">,</span>
+<span class="linenos">19</span>             <span class="n">cipher</span><span class="o">=</span><span class="n">block_cipher</span><span class="p">)</span>
+<span class="linenos">20</span><span class="n">exe</span> <span class="o">=</span> <span class="n">EXE</span><span class="p">(</span><span class="n">pyz</span><span class="p">,</span>
+<span class="linenos">21</span>          <span class="n">a</span><span class="o">.</span><span class="n">scripts</span><span class="p">,</span>
+<span class="linenos">22</span>          <span class="p">[],</span>
+<span class="linenos">23</span>          <span class="n">exclude_binaries</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">24</span>          <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Eye Got It&#39;</span><span class="p">,</span>
+<span class="linenos">25</span>          <span class="n">icon</span> <span class="o">=</span> <span class="s1">&#39;eye_got_it.ico&#39;</span><span class="p">,</span>
+<span class="linenos">26</span>          <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">27</span>          <span class="n">bootloader_ignore_signals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">28</span>          <span class="n">strip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">29</span>          <span class="n">upx</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">30</span>          <span class="n">console</span><span class="o">=</span><span class="kc">True</span> <span class="p">)</span>
+<span class="linenos">31</span><span class="n">coll</span> <span class="o">=</span> <span class="n">COLLECT</span><span class="p">(</span><span class="n">exe</span><span class="p">,</span>
+<span class="linenos">32</span>               <span class="n">a</span><span class="o">.</span><span class="n">binaries</span><span class="p">,</span>
+<span class="linenos">33</span>               <span class="n">a</span><span class="o">.</span><span class="n">zipfiles</span><span class="p">,</span>
+<span class="linenos">34</span>               <span class="n">a</span><span class="o">.</span><span class="n">datas</span><span class="p">,</span>
+<span class="linenos">35</span>               <span class="n">strip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="linenos">36</span>               <span class="n">upx</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="linenos">37</span>               <span class="n">upx_exclude</span><span class="o">=</span><span class="p">[],</span>
+<span class="linenos">38</span>               <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Eye Got It&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="generate-an-installer">
+<span id="compilationinstaller"></span><h2>Generate an Installer<a class="headerlink" href="#generate-an-installer" title="Permalink to this headline"></a></h2>
+<p>To create an installer for windows, we use Inno Setup. Please see the in <a class="reference internal" href="requirement.html#requirementinnosetup"><span class="std std-ref">Inno Setup</span></a> in <a class="reference internal" href="requirement.html#requirementcompilation"><span class="std std-ref">Compilation</span></a> section to install it.</p>
+<p>We created an ISS file to create an installer (we create the script by using the Inno Setup “Script Wizard”).</p>
+<p>IMPORTANT : <strong>Please test the installation and the Eye Got It before publishing a new release on the git.</strong></p>
+<p>The compilation created the installer in the folder Output in the Eye Got It folder.</p>
+<p>For more information : see <a class="reference external" href="https://jrsoftware.org/ishelp/">the Inno Setup documentation</a>.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the Inno Setup Script<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="installercode">
+<div class="code-block-caption"><span class="caption-number">Listing 8 </span><span class="caption-text">Inno Setup Code</span><a class="headerlink" href="#installercode" title="Permalink to this code"></a></div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span>; Script generated by the Inno Setup Script Wizard.
+<span class="linenos"> 2</span>; SEE THE DOCUMENTATION FOR DETAILS ON CREATING INNO SETUP SCRIPT FILES!
+<span class="linenos"> 3</span>
+<span class="linenos"> 4</span>#define Location &quot;E:\Documents\Eye_Got_It\dist\Eye Got It\&quot;
+<span class="linenos"> 5</span>#define MyAppName &quot;Eye Got It&quot;
+<span class="linenos"> 6</span>#define MyAppVersion &quot;5.0&quot;
+<span class="linenos"> 7</span>#define MyAppPublisher &quot;ENIB&quot;
+<span class="linenos"> 8</span>#define MyAppURL &quot;https://github.com/a7nougie/Eye_Got_It/&quot;
+<span class="linenos"> 9</span>#define MyAppExeName &quot;Eye Got It.exe&quot;
+<span class="linenos">10</span>;#define MyAppAssocName MyAppName + &quot; File&quot;
+<span class="linenos">11</span>;#define MyAppAssocExt &quot;.myp&quot;
+<span class="linenos">12</span>;#define MyAppAssocKey StringChange(MyAppAssocName, &quot; &quot;, &quot;&quot;) + MyAppAssocExt
+<span class="linenos">13</span>
+<span class="linenos">14</span>[Setup]
+<span class="linenos">15</span>; NOTE: The value of AppId uniquely identifies this application. Do not use the same AppId value in installers for other applications.
+<span class="linenos">16</span>; (To generate a new GUID, click Tools | Generate GUID inside the IDE.)
+<span class="linenos">17</span>AppId={{1E6DBCE8-12A7-48D4-B44D-B6B302169CCC}
+<span class="linenos">18</span>AppName={#MyAppName}
+<span class="linenos">19</span>AppVersion={#MyAppVersion}
+<span class="linenos">20</span>;AppVerName={#MyAppName} {#MyAppVersion}
+<span class="linenos">21</span>AppPublisher={#MyAppPublisher}
+<span class="linenos">22</span>AppPublisherURL={#MyAppURL}
+<span class="linenos">23</span>AppSupportURL={#MyAppURL}
+<span class="linenos">24</span>AppUpdatesURL={#MyAppURL}
+<span class="linenos">25</span>DefaultDirName=C:\{#MyAppName}
+<span class="linenos">26</span>DisableDirPage = auto
+<span class="linenos">27</span>;ChangesAssociations=yes
+<span class="linenos">28</span>DisableProgramGroupPage=yes
+<span class="linenos">29</span>InfoBeforeFile= Changelog.txt
+<span class="linenos">30</span>InfoAfterFile=eye_got_it/README.txt
+<span class="linenos">31</span>; Uncomment the following line to run in non administrative install mode (install for current user only.)
+<span class="linenos">32</span>;PrivilegesRequired=lowest
+<span class="linenos">33</span>PrivilegesRequiredOverridesAllowed=dialog
+<span class="linenos">34</span>OutputBaseFilename=Eye Got It
+<span class="linenos">35</span>SetupIconFile=eye_got_it.ico
+<span class="linenos">36</span>Compression=lzma
+<span class="linenos">37</span>SolidCompression=yes
+<span class="linenos">38</span>WizardStyle=modern
+<span class="linenos">39</span>
+<span class="linenos">40</span>[Languages]
+<span class="linenos">41</span>Name: &quot;english&quot;; MessagesFile: &quot;compiler:Default.isl&quot;
+<span class="linenos">42</span>Name: &quot;armenian&quot;; MessagesFile: &quot;compiler:Languages\Armenian.isl&quot;
+<span class="linenos">43</span>Name: &quot;bulgarian&quot;; MessagesFile: &quot;compiler:Languages\Bulgarian.isl&quot;
+<span class="linenos">44</span>Name: &quot;brazilianportuguese&quot;; MessagesFile: &quot;compiler:Languages\BrazilianPortuguese.isl&quot;
+<span class="linenos">45</span>Name: &quot;catalan&quot;; MessagesFile: &quot;compiler:Languages\Catalan.isl&quot;
+<span class="linenos">46</span>Name: &quot;corsican&quot;; MessagesFile: &quot;compiler:Languages\Corsican.isl&quot;
+<span class="linenos">47</span>Name: &quot;czech&quot;; MessagesFile: &quot;compiler:Languages\Czech.isl&quot;
+<span class="linenos">48</span>Name: &quot;danish&quot;; MessagesFile: &quot;compiler:Languages\Danish.isl&quot;
+<span class="linenos">49</span>Name: &quot;dutch&quot;; MessagesFile: &quot;compiler:Languages\Dutch.isl&quot;
+<span class="linenos">50</span>Name: &quot;finnish&quot;; MessagesFile: &quot;compiler:Languages\Finnish.isl&quot;
+<span class="linenos">51</span>Name: &quot;french&quot;; MessagesFile: &quot;compiler:Languages\French.isl&quot;
+<span class="linenos">52</span>Name: &quot;german&quot;; MessagesFile: &quot;compiler:Languages\German.isl&quot;
+<span class="linenos">53</span>Name: &quot;hebrew&quot;; MessagesFile: &quot;compiler:Languages\Hebrew.isl&quot;
+<span class="linenos">54</span>Name: &quot;icelandic&quot;; MessagesFile: &quot;compiler:Languages\Icelandic.isl&quot;
+<span class="linenos">55</span>Name: &quot;italian&quot;; MessagesFile: &quot;compiler:Languages\Italian.isl&quot;
+<span class="linenos">56</span>Name: &quot;japanese&quot;; MessagesFile: &quot;compiler:Languages\Japanese.isl&quot;
+<span class="linenos">57</span>Name: &quot;norwegian&quot;; MessagesFile: &quot;compiler:Languages\Norwegian.isl&quot;
+<span class="linenos">58</span>Name: &quot;polish&quot;; MessagesFile: &quot;compiler:Languages\Polish.isl&quot;
+<span class="linenos">59</span>Name: &quot;portuguese&quot;; MessagesFile: &quot;compiler:Languages\Portuguese.isl&quot;
+<span class="linenos">60</span>Name: &quot;russian&quot;; MessagesFile: &quot;compiler:Languages\Russian.isl&quot;
+<span class="linenos">61</span>Name: &quot;slovak&quot;; MessagesFile: &quot;compiler:Languages\Slovak.isl&quot;
+<span class="linenos">62</span>Name: &quot;slovenian&quot;; MessagesFile: &quot;compiler:Languages\Slovenian.isl&quot;
+<span class="linenos">63</span>Name: &quot;spanish&quot;; MessagesFile: &quot;compiler:Languages\Spanish.isl&quot;
+<span class="linenos">64</span>Name: &quot;turkish&quot;; MessagesFile: &quot;compiler:Languages\Turkish.isl&quot;
+<span class="linenos">65</span>Name: &quot;ukrainian&quot;; MessagesFile: &quot;compiler:Languages\Ukrainian.isl&quot;
+<span class="linenos">66</span>
+<span class="linenos">67</span>[Tasks]
+<span class="linenos">68</span>Name: &quot;desktopicon&quot;; Description: &quot;{cm:CreateDesktopIcon}&quot;; GroupDescription: &quot;{cm:AdditionalIcons}&quot;; Flags: unchecked
+<span class="linenos">69</span>
+<span class="linenos">70</span>[Files]
+<span class="linenos">71</span>Source: &quot;{#Location}\{#MyAppExeName}&quot;; DestDir: &quot;{app}&quot;; Flags: ignoreversion
+<span class="linenos">72</span>Source: &quot;{#Location}\*&quot;; DestDir: &quot;{app}&quot;; Flags: ignoreversion recursesubdirs createallsubdirs
+<span class="linenos">73</span>; NOTE: Don&#39;t use &quot;Flags: ignoreversion&quot; on any shared system files
+<span class="linenos">74</span>
+<span class="linenos">75</span>;[Registry]
+<span class="linenos">76</span>;Root: HKA; Subkey: &quot;Software\Classes\{#MyAppAssocExt}\OpenWithProgids&quot;; ValueType: string; ValueName: &quot;{#MyAppAssocKey}&quot;; ValueData: &quot;&quot;; Flags: uninsdeletevalue
+<span class="linenos">77</span>;Root: HKA; Subkey: &quot;Software\Classes\{#MyAppAssocKey}&quot;; ValueType: string; ValueName: &quot;&quot;; ValueData: &quot;{#MyAppAssocName}&quot;; Flags: uninsdeletekey
+<span class="linenos">78</span>;Root: HKA; Subkey: &quot;Software\Classes\{#MyAppAssocKey}\DefaultIcon&quot;; ValueType: string; ValueName: &quot;&quot;; ValueData: &quot;{app}\{#MyAppExeName},0&quot;
+<span class="linenos">79</span>;Root: HKA; Subkey: &quot;Software\Classes\{#MyAppAssocKey}\shell\open\command&quot;; ValueType: string; ValueName: &quot;&quot;; ValueData: &quot;&quot;&quot;{app}\{#MyAppExeName}&quot;&quot; &quot;&quot;%1&quot;&quot;&quot;
+<span class="linenos">80</span>;Root: HKA; Subkey: &quot;Software\Classes\Applications\{#MyAppExeName}\SupportedTypes&quot;; ValueType: string; ValueName: &quot;.myp&quot;; ValueData: &quot;&quot;
+<span class="linenos">81</span>
+<span class="linenos">82</span>[Icons]
+<span class="linenos">83</span>Name: &quot;{autoprograms}\{#MyAppName}&quot;; Filename: &quot;{app}\{#MyAppExeName}&quot;
+<span class="linenos">84</span>Name: &quot;{autodesktop}\{#MyAppName}&quot;; Filename: &quot;{app}\{#MyAppExeName}&quot;; Tasks: desktopicon
+<span class="linenos">85</span>
+<span class="linenos">86</span>[Run]
+<span class="linenos">87</span>Filename: &quot;{app}\{#MyAppExeName}&quot;; Description: &quot;{cm:LaunchProgram,{#StringChange(MyAppName, &#39;&amp;&#39;, &#39;&amp;&amp;&#39;)}}&quot;; Flags: nowait postinstall skipifsilent
+<span class="linenos">88</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="error-python-import">
+<h2>Error python import<a class="headerlink" href="#error-python-import" title="Permalink to this headline"></a></h2>
+<p>If you add new python dependency, during the compilation to EXE File, Pyinstaller not imported all module (experimented with sklearn, with some hidden dependencies ). You can add the hidden import in the hiddenimports in Pyinstaller script (Main.spec).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="EyeVoiceSpan.html" class="btn btn-neutral float-left" title="Eye-voice Span" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="simulationTechnical.html" class="btn btn-neutral float-right" title="Simulation Technical" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

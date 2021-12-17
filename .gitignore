@@ -1,0 +1,24 @@
+#open Face Folder
+eye_got_it/openFace/*
+!eye_got_it/openFace/.gitkeep  
+#pyinstaller
+build/
+dist/
+
+#Inno setup output
+Output/
+
+#python 
+*__pycache__/
+
+#Interation Lib Docs
+#*interaction_lib_sdk_doc/
+#*interaction_lib_sdk_windows_x64_dynamic*/
+
+#machine_learning
+machine_learning/Report/*
+/Eye_Tracker_Code/Interaction Library/Source/interaction_lib_sdk_windows_x64_dynamic_1.0.2.1/samples/wpf/Tobii.InteractionLib.Wpf.SampleApp/obj/x64/Debug/Tobii.InteractionLib.Wpf.SampleApp.csproj.AssemblyReference.cache
+/Eye_Tracker_Code/Interaction Library/Source/interaction_lib_sdk_windows_x64_dynamic_1.0.2.1/samples/wpf/Tobii.InteractionLib.Wpf.SampleApp/obj/x64/Debug/Tobii.InteractionLib.Wpf.SampleApp.csprojAssemblyReference.cache
+/.vs
+/Eye_Tracker_Code/Interaction Library/Source/interaction_lib_sdk_windows_x64_dynamic_1.0.2.1/samples/wpf/Tobii.InteractionLib.Wpf.SampleApp
+/openFace

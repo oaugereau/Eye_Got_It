@@ -1,0 +1,127 @@
+Release Notes
+Tobii Interaction Library SDK 1.0.2 - 2020-06-25
+
+
+INTRODUCTION
+
+We are proud to announce the 1.0 release of the Tobii Interaction Library! 
+
+The Tobii Interaction Library makes it easy to use gaze for interaction! It 
+also provides robust, built-in eye tracker connection management and easy 
+access to standard data streams, all in a lightweight library.
+
+For interaction, in general you want to know if the user is looking at an 
+object (eg a button or game object) rather than at a certain coordinate. This 
+is often called gaze-to-object mapping. The idea is that you provide the 
+Interaction Library with information on where your interactable elements are 
+(called Interactors in the API), and the library will provide gaze focus 
+events. The Interaction Library makes the focus determination using advanced 
+algorithms that take into account raw data noise, gaze offset errors, 
+physiological and gaze behavioral eye/gaze effects, relative object sizes and 
+z order, and more. This results in smart and stable object focus events 
+without sluggishness and jitter.
+
+The Interaction Library is available for Windows (32-bit & 64-bit), macOS 
+(64-bit) and Linux (Ubuntu 16, 64-bit) and currently supports C++, C and C#.
+
+
+FEATURES
+
+The Tobii Interaction Library provides solid, region-based gaze focus 
+calculations and events, as well as data stream access for Tobii eye trackers. 
+This is done with a minimal performance footprint, no threads and an easy to 
+use API. In bullet form:
+
+* Region-based gaze focus (gaze-to-object mapping)
+* Data streams (eg gaze point data, head pose and presence)
+* Automatic connection handling
+* Low resource requirements
+* No threads
+* Cross platform (currently Windows, Linux and macOS)
+* Multiple languages supported (currently C++, C and C#)
+* Easy to use with Windows WPF if you choose to use the included UI binding
+
+
+FEEDBACK AND QUESTIONS
+
+Any and all feedback is greatly appreciated so that we can make the 
+Interaction Library even better in the future. And we are happy to answer any 
+questions you may have!
+
+Please leave your feedback and questions in the forums on the Tobii 
+Developer Zone. Rest assured that all feedback will be read!
+
+
+MIGRATING FROM THE PUBLIC BETA
+
+If you are migrating from the public beta, be adviced that some API methods 
+have been renamed, and some have changed signatures, so you will unfortunately 
+not be able to just re-compile. It should however, in general, be quite 
+obvious which new methods correspond to the old ones.
+
+
+
+-------------------------------------------------------------------------------
+
+Release Notes
+Tobii Interaction Library SDK 0.7.340 - Public Beta, 2019-06-20
+
+
+INTRODUCTION
+
+We are proud to announce the first public release of the Tobii Interaction 
+Library! 
+
+The Tobii Interaction Library makes it easy to use gaze for interaction! It 
+also provides robust, built-in eye tracker connection management and easy 
+access to standard data streams, all in a lightweight library.
+
+For interaction, in general you want to know if the user is looking at an 
+object (eg a button or game object) rather than at a certain coordinate. This 
+is often called gaze-to-object mapping. The idea is that you provide the 
+Interaction Library with information on where your interactable elements are 
+(called Interactors in the API), and the library will provide gaze focus 
+events. The Interaction Library makes the focus determination using advanced 
+algorithms that take into account raw data noise, gaze offset errors, 
+physiological and gaze behavioral eye/gaze effects, relative object sizes and 
+z order, and more. This results in smart and stable object focus events 
+without sluggishness and jitter.
+
+The Interaction Library is available for Windows (32-bit & 64-bit), MacOS 
+(64-bit) and Linux 64-bit) and currently supports C++, C and C#.
+
+We consider this release to be of release candidate quality. We are publishing 
+it as a public beta to solicit feedback from the developer community and to 
+enable us to still do API changes based on this feedback if necessary. 
+
+
+FEATURES
+
+The Tobii Interaction Library provides solid, region-based gaze focus 
+calculations and events, as well as data stream access for Tobii eye trackers. 
+This is done with a minimal performance footprint, no threads and an easy to 
+use API. In bullet form:
+
+* Region-based gaze focus (gaze-to-object mapping)
+* Data streams (without overhead)
+* Automatic connection handling
+* Low resource requirements
+* No threads
+* Cross platform (currently Windows, Linux and macOS)
+* Multiple languages supported (currently C++, C and C#)
+
+
+FEEDBACK AND QUESTIONS
+
+Any and all feedback is greatly appreciated so that we can make the 
+Interaction Library even better in the future, and to make sure the 1.0 
+release becomes the best it can be! It will also help us improve our 
+documentation, to fill in any gaps or explain things more clearly where 
+needed. And we are happy to answer any questions you may have!
+
+Please leave your feedback and questions in the forums on the Tobii 
+Developer Zone. Rest assured that all feedback will be read!
+
+
+
+-------------------------------------------------------------------------------

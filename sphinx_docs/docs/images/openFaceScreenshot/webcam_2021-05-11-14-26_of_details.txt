@@ -1,0 +1,12 @@
+Input:webcam
+Camera parameters:500,500,320,240
+Output HOG:webcam_2021-05-11-14-26.hog
+Output video:webcam_2021-05-11-14-26.avi
+Output aligned directory:webcam_2021-05-11-14-26_aligned
+Output csv:webcam_2021-05-11-14-26.csv
+Gaze: 1
+AUs: 1
+Landmarks 2D: 1
+Landmarks 3D: 1
+Pose: 1
+Shape parameters: 1

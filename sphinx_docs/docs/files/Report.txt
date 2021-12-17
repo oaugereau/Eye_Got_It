@@ -1,0 +1,70 @@
+Report : 2021_04_23_09_19_11
+
+Screen Resolution :
+   Screen width : 1920
+   Screen heigth : 1080
+
+Offset coordinate :
+   x0 : 277
+   y0 : 215
+
+User : 
+   Name : Yoda Master
+   Birthday : 26/4/1200
+   Genre : Male
+   Level : C2
+   Toeic : 1000
+   Country : Galaxy far, far away
+
+User Data : 
+  Audio : True
+  Video : True
+  EyeTracker : True
+
+Text : 
+  Title : A_Happy_Visitor.Beginner.txt
+  Page Read : 3
+
+Time Read : 
+  Page 0 : 42884
+  Page 1 : 31153
+  Page 2 : 2817
+
+UNIX Time : 
+  Start : 1619162358158
+  Page 0 : 1619162401042
+  Page 1 : 1619162432195
+  Stop : 1619162435012
+
+
+UNIX Time Start 
+  Start Audio : 1619162358569
+  Start Video : 1619162358307
+  Start Eye Tracker Eye : 1619162358180
+  Start Eye Tracker Head: 1619162358167
+
+Video : 
+   Time video : 0:01:16.500000
+   Size video : 320x240
+   FPS : 30.0
+   Total Frame : 2295
+
+MCQ : 
+
+  QUESTION 1 : What is at the door of the house?
+  USER ANSWER : a dog
+  RIGHT ANSWERS
+
+  QUESTION 2 : What happens at the end of the story?
+  USER ANSWER : Anna keeps the dog.
+  RIGHT ANSWERS
+
+  QUESTION 3 : Is the dog dry or wet?
+  USER ANSWER : The dog is wet.
+  RIGHT ANSWERS
+
+  QUESTION 4 : What day of the week is it in the story?
+  USER ANSWER : Thursday
+  RIGHT ANSWERS
+
+  Score : 10.0/10

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Report Validation &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Video processing" href="videoProcess.html" />
+    <link rel="prev" title="Report Technical" href="reportTechnical.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Report Validation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#parameters">Parameters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#principe-de-fonctionnement">Principe de fonctionnement</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Report Validation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/reportValidation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="report-validation">
+<span id="reportvalidation"></span><h1>Report Validation<a class="headerlink" href="#report-validation" title="Permalink to this headline"></a></h1>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline"></a></h2>
+<p>Report validation is based on three parameters :</p>
+<ul class="simple">
+<li><p>Percentage of fixations whose centre is in a word : “Fixations in words” (Threshold 80%)</p></li>
+<li><p>Percentage of words with at least one fixation : “Words with at least a fixation” (Threshold 60%)</p></li>
+<li><p>Percentage of eyegaze in fixation’s circles : “Eyegazes in fixation” (Threshold 70%)</p></li>
+</ul>
+<p>Those three parameters are displayed at the end of report generation in a result window. Thresholds are defined to determine whether the data is finally valid or not. If a paramater value is under his threshold, data is considered not valid.</p>
+<figure class="align-default" id="traitement-validation">
+<a class="reference internal image-reference" href="_images/fonctionnementTraitement.png"><img alt="Traitement" src="_images/fonctionnementTraitement.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 45 </span><span class="caption-text">Traitement des données</span><a class="headerlink" href="#traitement-validation" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="principe-de-fonctionnement">
+<h2>Principe de fonctionnement<a class="headerlink" href="#principe-de-fonctionnement" title="Permalink to this headline"></a></h2>
+<p>Chaque mot d’un texte dispose d’un rectangle d’une certaine taille autour de lui, il nous est utile dans l’analyse de la 1ère donnée. On va venir matcher les centres des fixations avec l’emplacement des rectangles et ainsi voir combien de fixations sont associées à un mot.</p>
+<figure class="align-default" id="position-mots">
+<a class="reference internal image-reference" href="_images/positionMots.jpg"><img alt="Position Mots" src="_images/positionMots.jpg" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 46 </span><span class="caption-text">Position des mots</span><a class="headerlink" href="#position-mots" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Afin de compléter cette 1ère donnée, nous analysons de la même manière le nombre de mots qui dispose d’au moins une fixation.</p>
+<p>Finalement, on ajoute à tout ceci l’analyse des regards. On veut ici voir si les regards ne sont pas éparpillés un peu partout sur l’écran et si la plupart appartiennent à une fixation.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline"></a></h2>
+<figure class="align-default" id="baddata">
+<a class="reference internal image-reference" href="_images/BadData.png"><img alt="Bad Data" src="_images/BadData.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 47 </span><span class="caption-text">Bad data visualization</span><a class="headerlink" href="#baddata" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="report-mauvais-record">
+<a class="reference internal image-reference" href="_images/reportBadRecord.png"><img alt="Report Mauvais Record" src="_images/reportBadRecord.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Report Mauvais Record</span><a class="headerlink" href="#report-mauvais-record" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>En regardant les résultats de cet exemple, on comprend qu’il est potentiellement mauvais, ici nous avons moins de 60% de réussite sur les deux dernières données. Mais si on se basait sur la première donnée on pourrait se dire que finalement celui-ci n’est pas trop mauvais, en effet en regardant l’image des fixations on voit que la plupart sont associés à un mot, d’où l’utilité de venir compléter cette information.</p>
+</div>
+</figcaption>
+</figure>
+<p>Le second pourcentage nous apporte des informations sur le nombre de mots disposant d’au moins une fixation, mais finalement celui-ci pourrait être faussé car lors de notre lecture nous pouvons nous omettre de lire certains mots, ce seront les mots simple tel que “The”, “It”, “is” etc.</p>
+<p>En additionnant le nombre de mots “simple” au nombre de mots qu’on a pas forcément lu, ce pourcentage peut vite diminuer sans forcément indiquer une réelle erreur.</p>
+<figure class="align-default" id="gazes-limit">
+<a class="reference internal image-reference" href="_images/fixationsLimitGazes.jpg"><img alt="Gazes limit" src="_images/fixationsLimitGazes.jpg" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Gazes limit fixations</span><a class="headerlink" href="#gazes-limit" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id1">
+<a class="reference internal image-reference" href="_images/reportLimitGazes.png"><img alt="Gazes limit" src="_images/reportLimitGazes.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 50 </span><span class="caption-text">Report gazes limit</span><a class="headerlink" href="#id1" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>Cet enregistrement nous montre la limite de la 3ème mesure, qui détecte la quantité de regards en dehors des fixations. Cette donnée nous invite à nous demander quant à la validité des fixations.</p>
+</div>
+</figcaption>
+</figure>
+<p>Mais il faut faire attention, elle nous indique seulement si les regards sont bien dans une fixation. Car comme ici, nous avons un bon taux de regards appartenant à une fixation mais les fixations ne sont pas bonnes.</p>
+<figure class="align-default" id="validdata">
+<a class="reference internal image-reference" href="_images/ValidData.jpg"><img alt="Valid Data" src="_images/ValidData.jpg" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 51 </span><span class="caption-text">Good data visualization</span><a class="headerlink" href="#validdata" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="report-good-record-1">
+<a class="reference internal image-reference" href="_images/reportGoodRecord.png"><img alt="Report Good Record 1" src="_images/reportGoodRecord.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 52 </span><span class="caption-text">Report Good Record</span><a class="headerlink" href="#report-good-record-1" title="Permalink to this image"></a></p>
+<div class="legend">
+<p>Malgré le peu de visibilité de certains enregistrements, certains sont plutôt bon. Les rectangles autour des mots sont assez étirés, c’est pour cela que certaines fixations qui ont l’air d’être au dessus des mots, sont en fait associées à celui-ci.</p>
+<p>Il faut aussi faire attention à la 2ème donnée qui est souvent la moins basse des 3 sur les bons enregistrements. Le centre des fixations est parfois difficilement repérable et il se peut que celui-ci soit exactement dans le petit espace entre 2 mots. Donc les fixations quelques fixations auront l’air d’être dans un mot, mais n’appartiennent à personnes en réalité.</p>
+</div>
+</figcaption>
+</figure>
+<figure class="align-default" id="good-record">
+<a class="reference internal image-reference" href="_images/fixationsPerfectRecord.png"><img alt="Good Record" src="_images/fixationsPerfectRecord.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 53 </span><span class="caption-text">Good Record</span><a class="headerlink" href="#good-record" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="report-good-record">
+<a class="reference internal image-reference" href="_images/reportPerfectRecord.png"><img alt="Report Good Record" src="_images/reportPerfectRecord.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 54 </span><span class="caption-text">Report Good Record</span><a class="headerlink" href="#report-good-record" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Nous avons ici un bon enregistrement, la plupart des mots ont leur fixations, les regards sont beaucoup à appartenir à une fixation et chaque mots n’a pas plus d’une seule fixation à son compteur.</p>
+<p>A la suite de cette analyse, la validité des enregistrements est inscrit dans le fichier texte du rapport de chaque dossier d’enregistrement.</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="reportTechnical.html" class="btn btn-neutral float-left" title="Report Technical" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="videoProcess.html" class="btn btn-neutral float-right" title="Video processing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

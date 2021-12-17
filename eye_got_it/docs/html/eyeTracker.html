@@ -1,0 +1,1394 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eye Tracker &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Eye-voice Span" href="EyeVoiceSpan.html" />
+    <link rel="prev" title="Documentation" href="documentation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Eye Tracker</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#eye-tracker-library">Eye tracker Library</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-library">Interaction Library</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#data-acquisition">Data Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#eye-tracker-code">Eye Tracker Code</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-pro">SDK Pro</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Data Acquisition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sdk-pro-python-code">SDK Pro Python Code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#output-files">Output Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Interaction Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">SDK Pro</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#eye-tracker-algorithm">Eye Tracker Algorithm</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#buscher-algorithm">Buscher Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#nystrom-algorithm">Nystrom Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#gaze-velocity-and-acceleration">Gaze Velocity and Acceleration</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Eye Tracker</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/eyeTracker.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eye-tracker">
+<span id="eyetracker"></span><h1>Eye Tracker<a class="headerlink" href="#eye-tracker" title="Permalink to this headline"></a></h1>
+<p>We used an Eye Tracker 5 and Eye tracker EyeX for the gaming range and a Eye Tracker Pro nano for the research range.</p>
+<p>For more information about how working an Eye tracker and about Eye, see <a class="reference external" href="https://www.tobiipro.com/learn-and-support/learn/eye-tracking-essentials/">Eye tracking essentials in Tobii Documentation</a> .</p>
+<section id="terminology">
+<span id="eyetrackerterminology"></span><h2>Terminology<a class="headerlink" href="#terminology" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>gaze : it represent the spot of the screen you’re looking at.</p></li>
+<li><p>fixation : it is a cluster of gazes close to each other, the size of the circle represent the duration of the fixation and its centre is located at the centroid of all the gazes in it.</p></li>
+</ul>
+</section>
+<section id="eye-tracker-library">
+<span id="eyetrackerlibrary"></span><h2>Eye tracker Library<a class="headerlink" href="#eye-tracker-library" title="Permalink to this headline"></a></h2>
+<section id="interaction-library">
+<span id="eyetrackerinteractionlibrary"></span><h3>Interaction Library<a class="headerlink" href="#interaction-library" title="Permalink to this headline"></a></h3>
+<p>To get the eyeTracker Data (eyes and head position), we use the
+Interaction Library. See <a class="reference external" href="./documentations/InteractionLibrary/interaction_lib_sdk_doc.zip">offline Documenation</a> or <a class="reference external" href="https://developer.tobii.com/product-integration/interaction-library/getting-started/">online Documentation</a> .</p>
+<p>Please see the <a class="reference internal" href="requirement.html#requirementinteractionlibrary"><span class="std std-ref">Interaction Library</span></a> in <a class="reference internal" href="requirement.html#requirementeyetracker"><span class="std std-ref">Eye Tracker Requirement</span></a> section.</p>
+<section id="data-acquisition">
+<h4>Data Acquisition<a class="headerlink" href="#data-acquisition" title="Permalink to this headline"></a></h4>
+</section>
+<section id="eye-tracker-code">
+<h4>Eye Tracker Code<a class="headerlink" href="#eye-tracker-code" title="Permalink to this headline"></a></h4>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the Interaction Library Code<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the C++ main code<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="eyetrackercode">
+<div class="code-block-caption"><span class="caption-number">Listing 1 </span><span class="caption-text">C++ main file</span><a class="headerlink" href="#eyetrackercode" title="Permalink to this code"></a></div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="cm">/*</span>
+<span class="linenos">  2</span><span class="cm">COPYRIGHT 2018-2020  - PROPERTY OF TOBII AB</span>
+<span class="linenos">  3</span><span class="cm">-------------------------------------</span>
+<span class="linenos">  4</span><span class="cm">2018-2020 TOBII AB - KARLSROVAGEN 2D, DANDERYD 182 53, SWEDEN - All Rights Reserved.</span>
+<span class="linenos">  5</span>
+<span class="linenos">  6</span><span class="cm">NOTICE:  All information contained herein is, and remains, the property of Tobii AB and its suppliers, if any.</span>
+<span class="linenos">  7</span><span class="cm">The intellectual and technical concepts contained herein are proprietary to Tobii AB and its suppliers and may be</span>
+<span class="linenos">  8</span><span class="cm">covered by U.S.and Foreign Patents, patent applications, and are protected by trade secret or copyright law.</span>
+<span class="linenos">  9</span><span class="cm">Dissemination of this information or reproduction of this material is strictly forbidden unless prior written</span>
+<span class="linenos"> 10</span><span class="cm">permission is obtained from Tobii AB.</span>
+<span class="linenos"> 11</span><span class="cm">*/</span><span class="w"></span>
+<span class="linenos"> 12</span>
+<span class="linenos"> 13</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<span class="linenos"> 14</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;fstream&gt;</span><span class="cp"></span>
+<span class="linenos"> 15</span><span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="linenos"> 16</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 17</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;eyeTracker.h&quot;</span><span class="cp"></span>
+<span class="linenos"> 18</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;interaction_lib/InteractionLib.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 19</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;interaction_lib/misc/InteractionLibPtr.h&gt;</span><span class="cp"></span>
+<span class="linenos"> 20</span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;chrono&gt;</span><span class="cp"></span>
+<span class="linenos"> 21</span>
+<span class="linenos"> 22</span><span class="kt">uint64_t</span><span class="w"> </span><span class="nf">timeSinceEpochMillisec</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="k">using</span><span class="w"> </span><span class="k">namespace</span><span class="w"> </span><span class="nn">std</span><span class="o">::</span><span class="nn">chrono</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 24</span><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">duration_cast</span><span class="o">&lt;</span><span class="n">milliseconds</span><span class="o">&gt;</span><span class="p">(</span><span class="n">system_clock</span><span class="o">::</span><span class="n">now</span><span class="p">().</span><span class="n">time_since_epoch</span><span class="p">()).</span><span class="n">count</span><span class="p">();</span><span class="w"></span>
+<span class="linenos"> 25</span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="kt">int</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">argc</span><span class="p">,</span><span class="w"> </span><span class="kt">char</span><span class="w"> </span><span class="o">*</span><span class="n">argv</span><span class="p">[])</span><span class="w"></span>
+<span class="linenos"> 27</span><span class="p">{</span><span class="w"></span>
+<span class="linenos"> 28</span><span class="w">    </span><span class="k">for</span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">argc</span><span class="w"> </span><span class="p">;</span><span class="w"> </span><span class="o">++</span><span class="n">i</span><span class="p">){</span><span class="w"></span>
+<span class="linenos"> 29</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="n">argv</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="sc">&#39;\n&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos"> 31</span>
+<span class="linenos"> 32</span><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">screenWidthTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 33</span><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">screenHeightTemp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 34</span><span class="w">    </span><span class="c1">//const char* offsetxTemp = argv[3];</span>
+<span class="linenos"> 35</span><span class="w">    </span><span class="c1">//const char* offsetyTemp = argv[4];</span>
+<span class="linenos"> 36</span><span class="w">    </span><span class="c1">//const char* widthAppTemp = argv[5];</span>
+<span class="linenos"> 37</span><span class="w">    </span><span class="c1">//const char* heightAppTemp = argv[6];</span>
+<span class="linenos"> 38</span><span class="w">    </span><span class="n">dirGaze</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 39</span><span class="w">    </span><span class="n">dirHead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">];</span><span class="w"></span>
+<span class="linenos"> 40</span><span class="w">    </span><span class="n">screenWidth</span><span class="w">  </span><span class="o">=</span><span class="w">  </span><span class="n">atof</span><span class="p">(</span><span class="n">screenWidthTemp</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="n">screenHeight</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">atof</span><span class="p">(</span><span class="n">screenHeightTemp</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 42</span><span class="w">    </span><span class="c1">//offsetx = atof(offsetxTemp);</span>
+<span class="linenos"> 43</span><span class="w">    </span><span class="c1">//offsety = atof(offsetyTemp);</span>
+<span class="linenos"> 44</span><span class="w">    </span><span class="c1">//widthApp  = atof(widthAppTemp);</span>
+<span class="linenos"> 45</span><span class="w">    </span><span class="c1">//heightApp = atof(heightAppTemp);</span>
+<span class="linenos"> 46</span>
+<span class="linenos"> 47</span><span class="w">    </span><span class="n">offsetx</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w">    </span><span class="n">offsety</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 49</span><span class="w">    </span>
+<span class="linenos"> 50</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">file</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 51</span><span class="w">    </span><span class="n">file</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">dirGaze</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 52</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x_gaze&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;y_gaze&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;validity_gaze&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;timestamp_us_gaze&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;unix_time_ms_gaze&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 58</span>
+<span class="linenos"> 59</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">fileHead</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 60</span><span class="w">    </span><span class="n">fileHead</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">dirHead</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 61</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_pos_x&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_pos_y&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_pos_z&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;validity_pos&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;timestamp_us_head&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;unix_time_ms_head&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;;&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_rot_x&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 68</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_rot_y&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 69</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;head_rot_z&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;validity_rot_x&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 71</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;validity_rot_y&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;validity_rot_z&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">    </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="c1">// create the interaction library</span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="n">IL</span><span class="o">::</span><span class="n">UniqueInteractionLibPtr</span><span class="w"> </span><span class="nf">intlib</span><span class="p">(</span><span class="n">IL</span><span class="o">::</span><span class="n">CreateInteractionLib</span><span class="p">(</span><span class="n">IL</span><span class="o">::</span><span class="n">FieldOfUse</span><span class="o">::</span><span class="n">Interactive</span><span class="p">));</span><span class="w"></span>
+<span class="linenos"> 77</span><span class="w">    </span><span class="n">intlib</span><span class="o">-&gt;</span><span class="n">CoordinateTransformAddOrUpdateDisplayArea</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span><span class="w"> </span><span class="n">screenHeight</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 78</span><span class="w">    </span><span class="n">intlib</span><span class="o">-&gt;</span><span class="n">CoordinateTransformSetOriginOffset</span><span class="p">(</span><span class="n">offsetx</span><span class="p">,</span><span class="w"> </span><span class="n">offsety</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 79</span>
+<span class="linenos"> 80</span><span class="w">    </span><span class="c1">// subscribe to gaze point data; print data to stdout when called</span>
+<span class="linenos"> 81</span><span class="w">    </span><span class="n">intlib</span><span class="o">-&gt;</span><span class="n">SubscribeGazePointData</span><span class="p">([](</span><span class="n">IL</span><span class="o">::</span><span class="n">GazePointData</span><span class="w"> </span><span class="n">evt</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">    </span><span class="p">{</span><span class="w">   </span>
+<span class="linenos"> 83</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"></span>
+<span class="linenos"> 84</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;x: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">x</span><span class="w"></span>
+<span class="linenos"> 85</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, y: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">y</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, validity: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">validity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;, timestamp: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">timestamp_us</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot; us&quot;</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="w">            </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 89</span>
+<span class="linenos"> 90</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">file</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">        </span><span class="n">file</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">dirGaze</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">x</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">y</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">validity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">timestamp_us</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">timeSinceEpochMillisec</span><span class="p">();</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">        </span><span class="n">file</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 98</span>
+<span class="linenos"> 99</span><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">100</span>
+<span class="linenos">101</span><span class="w">    </span><span class="n">intlib</span><span class="o">-&gt;</span><span class="n">SubscribeHeadPoseData</span><span class="p">([](</span><span class="n">IL</span><span class="o">::</span><span class="n">HeadPoseData</span><span class="w"> </span><span class="n">evt</span><span class="p">,</span><span class="w"> </span><span class="kt">void</span><span class="o">*</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">102</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">        </span><span class="n">std</span><span class="o">::</span><span class="n">fstream</span><span class="w"> </span><span class="n">fileHead</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">104</span><span class="w">        </span><span class="n">fileHead</span><span class="p">.</span><span class="n">open</span><span class="w"> </span><span class="p">(</span><span class="n">dirHead</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">out</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">ios</span><span class="o">::</span><span class="n">app</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">105</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">position_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">position_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">position_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">108</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">position_validity</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">109</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">evt</span><span class="p">.</span><span class="n">timestamp_us</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">timeSinceEpochMillisec</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">111</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">112</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_validity_xyz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_validity_xyz</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">rotation_validity_xyz</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">IL</span><span class="o">::</span><span class="n">Validity</span><span class="o">::</span><span class="n">Valid</span><span class="w"> </span><span class="o">?</span><span class="w"> </span><span class="s">&quot;valid&quot;</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="s">&quot;invalid&quot;</span><span class="p">)</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;,&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">        </span><span class="n">fileHead</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w">  </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">118</span><span class="w">    </span>
+<span class="linenos">119</span><span class="w">    </span><span class="p">},</span><span class="w"> </span><span class="k">nullptr</span><span class="p">);</span><span class="w"></span>
+<span class="linenos">120</span>
+<span class="linenos">121</span><span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Starting interaction library update loop.</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">122</span><span class="w">    </span>
+<span class="linenos">123</span><span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="w"></span>
+<span class="linenos">124</span><span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">        </span><span class="n">intlib</span><span class="o">-&gt;</span><span class="n">WaitAndUpdate</span><span class="p">();</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="linenos">127</span><span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+</div>
+</details><details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view C++ header code<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="eyetrackercodeheader">
+<div class="code-block-caption"><span class="caption-number">Listing 2 </span><span class="caption-text">C++ header file</span><a class="headerlink" href="#eyetrackercodeheader" title="Permalink to this code"></a></div>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="cp">#ifndef Eye_Got_It_h</span>
+<span class="linenos"> 2</span><span class="cp">#define Eye_Got_It_h</span>
+<span class="linenos"> 3</span><span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp"></span>
+<span class="linenos"> 4</span>
+<span class="linenos"> 5</span><span class="kt">float</span><span class="w"> </span><span class="n">screenWidth</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 6</span><span class="kt">float</span><span class="w"> </span><span class="n">screenHeight</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 7</span><span class="kt">float</span><span class="w"> </span><span class="n">offsetx</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 8</span><span class="kt">float</span><span class="w"> </span><span class="n">offsety</span><span class="p">;</span><span class="w"></span>
+<span class="linenos"> 9</span><span class="kt">float</span><span class="w"> </span><span class="n">widthApp</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">10</span><span class="kt">float</span><span class="w"> </span><span class="n">heightApp</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">11</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">dirGaze</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">12</span><span class="k">const</span><span class="w"> </span><span class="kt">char</span><span class="o">*</span><span class="w"> </span><span class="n">dirHead</span><span class="p">;</span><span class="w"></span>
+<span class="linenos">13</span>
+<span class="linenos">14</span><span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></div>
+</details></section>
+</section>
+<section id="sdk-pro">
+<span id="eyetrackersdkpro"></span><h3>SDK Pro<a class="headerlink" href="#sdk-pro" title="Permalink to this headline"></a></h3>
+<p><a class="reference external" href="http://developer.tobiipro.com/">SDK Pro Documentation</a></p>
+<p><strong>Important</strong> : SDK Pro only work with python 3.6.</p>
+<section id="id1">
+<h4>Data Acquisition<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h4>
+<p>We acquire some data with the SDK Pro :</p>
+<section id="gaze">
+<h5>Gaze<a class="headerlink" href="#gaze" title="Permalink to this headline"></a></h5>
+<p>With acquire the Gaze in 2D and 3D.</p>
+<p>For the 2D Gazes (Gazes Points), we used the Active Display Coordinate System (See <a class="reference internal" href="#adcs"><span class="std std-numref">Fig. 27</span></a>).</p>
+<p>For the 3D Gazes (Gazes Origin), we used the User Coordinate System System (See <a class="reference internal" href="#ucs"><span class="std std-numref">Fig. 28</span></a>).</p>
+<p>We also saving the Track Box Coordinate System (See <a class="reference internal" href="#tbcs"><span class="std std-numref">Fig. 29</span></a> but not used it).</p>
+<p>The gaze is provided for the left and right eye individually and we create one gaze position (the mean of left and rigth eyes coordinates).</p>
+<p>For more information, see <a class="reference external" href="http://developer.tobiipro.com/commonconcepts/gaze.html">Gazes in SDP Pro Documentation</a> and
+<a class="reference external" href="http://developer.tobiipro.com/commonconcepts/coordinatesystems.html">Coordinate systems in SDP Pro Documentation</a> .</p>
+<figure class="align-default" id="adcs">
+<a class="reference internal image-reference" href="_images/ADCS.png"><img alt="Active Display Coordinate System" src="_images/ADCS.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Active Display Coordinate System</span><a class="headerlink" href="#adcs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="ucs">
+<a class="reference internal image-reference" href="_images/UCS.png"><img alt="User Coordinate System" src="_images/UCS.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">User Coordinate System</span><a class="headerlink" href="#ucs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="tbcs">
+<a class="reference internal image-reference" href="_images/TBCS.png"><img alt="Track Box Coordinate System" src="_images/TBCS.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">Track Box Coordinate System</span><a class="headerlink" href="#tbcs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="pupil-diameter">
+<h5>Pupil diameter<a class="headerlink" href="#pupil-diameter" title="Permalink to this headline"></a></h5>
+<p>The pupil diameter data is provided for the left and the right eye individually and is an estimate of the pupil size in millimeters.</p>
+<p>For more information, see <a class="reference external" href="http://developer.tobiipro.com/commonconcepts/pupildiameter.html">Pupil diameter in SDP Pro Documentation</a> .</p>
+</section>
+</section>
+<section id="sdk-pro-python-code">
+<h4>SDK Pro Python Code<a class="headerlink" href="#sdk-pro-python-code" title="Permalink to this headline"></a></h4>
+<p>If you want to create an exe file, please see <a class="reference internal" href="compilation.html#compilationexe"><span class="std std-ref">Generate an exe file</span></a> in <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compilation</span></a> section.</p>
+<p><strong>Important</strong> : SDK Pro only work with python 3.6.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the SDK PRO code in python<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="eyetrackerpro">
+<div class="code-block-caption"><span class="caption-number">Listing 3 </span><span class="caption-text">EyeTracker SDK Pro</span><a class="headerlink" href="#eyetrackerpro" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span><span class="nn">os</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">import</span> <span class="nn">time</span><span class="o">,</span> <span class="nn">csv</span><span class="o">,</span><span class="nn">threading</span>
+<span class="linenos">  4</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span><span class="s1">&#39;64&#39;</span><span class="p">))</span>
+<span class="linenos">  5</span><span class="kn">import</span> <span class="nn">tobii_research</span> <span class="k">as</span> <span class="nn">tr</span>
+<span class="linenos">  6</span><span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">)</span><span class="o">!=</span><span class="mi">5</span> <span class="p">:</span>
+<span class="linenos">  7</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+<span class="linenos">  8</span>
+<span class="linenos">  9</span><span class="n">screen_width</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos"> 10</span><span class="n">screen_height</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span>
+<span class="linenos"> 11</span><span class="n">eyeTrackerCSV</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="c1">#&quot;eyeTracker.csv&quot;</span>
+<span class="linenos"> 12</span><span class="n">eyeTrackerHeadCSV</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span><span class="c1">#&quot;eyeTrackerHead.csv&quot;</span>
+<span class="linenos"> 13</span>
+<span class="linenos"> 14</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">eyeTrackerCSV</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+<span class="linenos"> 15</span>        <span class="n">fileUser</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 16</span>        <span class="n">fileUser</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;x_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;y_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;validity_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;timestamp_us_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;unix_time_ms_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;left_pupil_diameter_millimeters&quot;</span><span class="p">,</span><span class="s2">&quot;left_pupil_validity&quot;</span><span class="p">,</span><span class="s2">&quot;right_pupil_diameter_millimeters&quot;</span><span class="p">,</span><span class="s2">&quot;right_pupil_validity&quot;</span><span class="p">,</span><span class="s2">&quot;left_eye_x_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;left_eye_y_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;left_eye_validity_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;right_eye_x_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;right_eye_y_gaze&quot;</span><span class="p">,</span><span class="s2">&quot;right_eye_validity_gaze&quot;</span><span class="p">])</span>
+<span class="linenos"> 17</span>        <span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos"> 18</span>
+<span class="linenos"> 19</span>
+<span class="linenos"> 20</span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">eyeTrackerHeadCSV</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+<span class="linenos"> 21</span>        <span class="n">fileUser</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 22</span>        <span class="n">fileUser</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="s2">&quot;head_pos_x&quot;</span><span class="p">,</span><span class="s2">&quot;head_pos_y&quot;</span><span class="p">,</span><span class="s2">&quot;head_pos_z&quot;</span><span class="p">,</span><span class="s2">&quot;validity_pos&quot;</span><span class="p">,</span><span class="s2">&quot;timestamp_us_head&quot;</span><span class="p">,</span><span class="s2">&quot;unix_time_ms_head&quot;</span><span class="p">,</span><span class="s2">&quot;left_x_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;left_y_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;left_z_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;left_gaze_origin_validity&quot;</span><span class="p">,</span><span class="s2">&quot;right_x_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_y_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_z_gaze_point_in_user_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_gaze_origin_validity&quot;</span><span class="p">,</span><span class="s2">&quot;left_x_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;left_gaze_y_origin_in_trackbox_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;left_z_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_x_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_y_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">,</span><span class="s2">&quot;right_z_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">])</span>
+<span class="linenos"> 23</span>        <span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> 
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="n">found_eyetrackers</span> <span class="o">=</span> <span class="n">tr</span><span class="o">.</span><span class="n">find_all_eyetrackers</span><span class="p">()</span>
+<span class="linenos"> 26</span><span class="k">if</span> <span class="ow">not</span> <span class="n">found_eyetrackers</span> <span class="p">:</span>
+<span class="linenos"> 27</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;eyeTracker pro not found&quot;</span><span class="p">)</span>
+<span class="linenos"> 28</span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span class="linenos"> 29</span><span class="n">my_eyetracker</span> <span class="o">=</span> <span class="n">found_eyetrackers</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 30</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 31</span><span class="sd">print(&quot;Address: &quot; + my_eyetracker.address)</span>
+<span class="linenos"> 32</span><span class="sd">print(&quot;Model: &quot; + my_eyetracker.model)</span>
+<span class="linenos"> 33</span><span class="sd">print(&quot;Name (It&#39;s OK if this is empty): &quot; + my_eyetracker.device_name)</span>
+<span class="linenos"> 34</span><span class="sd">print(&quot;Serial number: &quot; + my_eyetracker.serial_number)</span>
+<span class="linenos"> 35</span><span class="sd">&quot;&quot;&quot;</span>
+<span class="linenos"> 36</span><span class="k">def</span> <span class="nf">execute</span><span class="p">(</span><span class="n">eyetracker</span><span class="p">):</span>
+<span class="linenos"> 37</span>    <span class="n">gaze_data</span><span class="p">(</span><span class="n">eyetracker</span><span class="p">)</span>
+<span class="linenos"> 38</span> 
+<span class="linenos"> 39</span><span class="n">global_gaze_data</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="linenos"> 40</span>
+<span class="linenos"> 41</span><span class="k">def</span> <span class="nf">gaze_data_callback</span><span class="p">(</span><span class="n">gaze_data</span><span class="p">):</span>
+<span class="linenos"> 42</span>    <span class="k">global</span> <span class="n">global_gaze_data</span><span class="p">,</span><span class="n">eyeTrackerCSV</span><span class="p">,</span><span class="n">eyeTrackerHeadCSV</span><span class="p">,</span><span class="n">screen_width</span><span class="p">,</span><span class="n">screen_height</span>
+<span class="linenos"> 43</span>    <span class="n">global_gaze_data</span> <span class="o">=</span> <span class="n">gaze_data</span>
+<span class="linenos"> 44</span>    <span class="c1">#print(global_gaze_data)</span>
+<span class="linenos"> 45</span>    <span class="n">timestampEyeTracker</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;device_time_stamp&quot;</span><span class="p">]</span>
+<span class="linenos"> 46</span>    <span class="n">unixTime</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="linenos"> 47</span>
+<span class="linenos"> 48</span>    
+<span class="linenos"> 49</span>    <span class="n">x</span> <span class="o">=</span> <span class="p">((</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">screen_width</span>
+<span class="linenos"> 50</span>    <span class="n">y</span> <span class="o">=</span> <span class="p">((</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="n">screen_height</span>
+<span class="linenos"> 51</span>
+<span class="linenos"> 52</span>    <span class="n">validity_gaze</span><span class="o">=</span><span class="s2">&quot;&quot;</span>
+<span class="linenos"> 53</span>    <span class="k">if</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 54</span>        <span class="n">validity_gaze</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 55</span>        
+<span class="linenos"> 56</span>
+<span class="linenos"> 57</span>    <span class="k">elif</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 58</span>        <span class="n">validity_gaze</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 59</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">screen_width</span>
+<span class="linenos"> 60</span>        <span class="n">y</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">screen_height</span>
+<span class="linenos"> 61</span>
+<span class="linenos"> 62</span>    <span class="k">elif</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 63</span>        <span class="n">validity_gaze</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 64</span>        <span class="n">x</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">screen_width</span>
+<span class="linenos"> 65</span>        <span class="n">y</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">screen_height</span>
+<span class="linenos"> 66</span>
+<span class="linenos"> 67</span>    <span class="k">else</span> <span class="p">:</span>
+<span class="linenos"> 68</span>        <span class="n">validity_gaze</span> <span class="o">=</span> <span class="s2">&quot;invalid&quot;</span>
+<span class="linenos"> 69</span>
+<span class="linenos"> 70</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">eyeTrackerCSV</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+<span class="linenos"> 71</span>        <span class="n">fileUser</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos"> 72</span>        <span class="n">fileUser</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">validity_gaze</span><span class="p">,</span><span class="n">timestampEyeTracker</span><span class="p">,</span><span class="n">unixTime</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_pupil_diameter&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_pupil_validity&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_pupil_diameter&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_pupil_validity&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">screen_width</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">screen_height</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_point_validity&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">screen_width</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_on_display_area&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="n">screen_height</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_point_validity&quot;</span><span class="p">]])</span>
+<span class="linenos"> 73</span>        <span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos"> 74</span>
+<span class="linenos"> 75</span>
+<span class="linenos"> 76</span>    <span class="n">x_position</span> <span class="o">=</span> <span class="p">((</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 77</span>    <span class="n">y_position</span> <span class="o">=</span> <span class="p">((</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 78</span>    <span class="n">z_position</span> <span class="o">=</span> <span class="p">((</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos"> 79</span>    
+<span class="linenos"> 80</span>    <span class="n">pos_valid</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+<span class="linenos"> 81</span>    <span class="k">if</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 82</span>        <span class="n">pos_valid</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 83</span>    <span class="k">elif</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 84</span>        <span class="n">pos_valid</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 85</span>        <span class="n">x_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 86</span>        <span class="n">y_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos"> 87</span>        <span class="n">z_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos"> 88</span>
+<span class="linenos"> 89</span>    <span class="k">elif</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_validity&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 90</span>        <span class="n">pos_valid</span> <span class="o">=</span> <span class="s2">&quot;valid&quot;</span>
+<span class="linenos"> 91</span>        <span class="n">x_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 92</span>        <span class="n">y_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos"> 93</span>        <span class="n">z_position</span> <span class="o">=</span> <span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<span class="linenos"> 94</span>    
+<span class="linenos"> 95</span>    <span class="k">else</span> <span class="p">:</span>
+<span class="linenos"> 96</span>        <span class="n">pos_valid</span> <span class="o">=</span> <span class="s2">&quot;invalid&quot;</span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">eyeTrackerHeadCSV</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+<span class="linenos"> 99</span>        <span class="n">fileUser</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">csvfile</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="linenos">100</span>        <span class="n">fileUser</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">x_position</span><span class="p">,</span><span class="n">y_position</span><span class="p">,</span><span class="n">z_position</span><span class="p">,</span><span class="n">pos_valid</span><span class="p">,</span><span class="n">timestampEyeTracker</span><span class="p">,</span><span class="n">unixTime</span><span class="p">,</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_validity&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_user_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_validity&quot;</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;left_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">global_gaze_data</span><span class="p">[</span><span class="s2">&quot;right_gaze_origin_in_trackbox_coordinate_system&quot;</span><span class="p">][</span><span class="mi">2</span><span class="p">]])</span>
+<span class="linenos">101</span>        <span class="n">csvfile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="linenos">102</span>
+<span class="linenos">103</span>    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;x_gaze : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; y_gaze : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; validity_gaze : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">validity_gaze</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; timestamp_us_gaze : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">timestampEyeTracker</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; unix_time_ms_gaze : &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">unixTime</span><span class="p">))</span>
+<span class="linenos">104</span>
+<span class="linenos">105</span> 
+<span class="linenos">106</span><span class="k">def</span> <span class="nf">gaze_data</span><span class="p">(</span><span class="n">eyetracker</span><span class="p">):</span>
+<span class="linenos">107</span>    <span class="k">global</span> <span class="n">global_gaze_data</span><span class="p">,</span> <span class="n">global_user_position_guide</span>
+<span class="linenos">108</span>    
+<span class="linenos">109</span>    <span class="c1">#print(&quot;Subscribing to gaze data for eye tracker with serial number {0}.&quot;.format(eyetracker.serial_number))</span>
+<span class="linenos">110</span>
+<span class="linenos">111</span>    <span class="n">eyetracker</span><span class="o">.</span><span class="n">subscribe_to</span><span class="p">(</span><span class="n">tr</span><span class="o">.</span><span class="n">EYETRACKER_GAZE_DATA</span><span class="p">,</span> <span class="n">gaze_data_callback</span><span class="p">,</span> <span class="n">as_dictionary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="linenos">112</span>    
+<span class="linenos">113</span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="linenos">114</span>        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="linenos">115</span>        
+<span class="linenos">116</span>    <span class="c1"># Wait while some gaze data is collected.</span>
+<span class="linenos">117</span>    <span class="c1">#time.sleep(2)</span>
+<span class="linenos">118</span>    
+<span class="linenos">119</span>    <span class="c1">#eyetracker.unsubscribe_from(tr.EYETRACKER_GAZE_DATA, gaze_data_callback)</span>
+<span class="linenos">120</span>    
+<span class="linenos">121</span>    <span class="c1">#print(&quot;Unsubscribed from gaze data.&quot;)</span>
+<span class="linenos">122</span>
+<span class="linenos">123</span>    <span class="c1">#print(&quot;Last received gaze package:&quot;)</span>
+<span class="linenos">124</span>    <span class="c1">#print(global_gaze_data)</span>
+<span class="linenos">125</span>    
+<span class="linenos">126</span><span class="c1"># &lt;EndExample&gt;</span>
+<span class="linenos">127</span>
+<span class="linenos">128</span><span class="n">execute</span><span class="p">(</span><span class="n">my_eyetracker</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+<section id="output-files">
+<span id="eyetrackeroutputfiles"></span><h2>Output Files<a class="headerlink" href="#output-files" title="Permalink to this headline"></a></h2>
+<section id="id2">
+<h3>Interaction Library<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<p>Example of eyeTracker.csv file :</p>
+<div class="center docutils container">
+<table class="docutils align-default" id="eyetrackercsvexample">
+<caption><span class="caption-number">Table 1 </span><span class="caption-text">eyeTracker.csv Example</span><a class="headerlink" href="#eyetrackercsvexample" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 13%" />
+<col style="width: 13%" />
+<col style="width: 21%" />
+<col style="width: 27%" />
+<col style="width: 27%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x_gaze</p></td>
+<td><p>y_gaze</p></td>
+<td><p>validity_gaze</p></td>
+<td><p>timestamp_us_gaze</p></td>
+<td><p>unix_time_ms_gaze</p></td>
+</tr>
+<tr class="row-even"><td><p>393.616</p></td>
+<td><p>248.489</p></td>
+<td><p>valid</p></td>
+<td><p>731431715</p></td>
+<td><p>1619162351442</p></td>
+</tr>
+<tr class="row-odd"><td><p>393.948</p></td>
+<td><p>249.866</p></td>
+<td><p>valid</p></td>
+<td><p>731462309</p></td>
+<td><p>1619162351473</p></td>
+</tr>
+<tr class="row-even"><td><p>405.775</p></td>
+<td><p>250.615</p></td>
+<td><p>valid</p></td>
+<td><p>731492116</p></td>
+<td><p>1619162351506</p></td>
+</tr>
+<tr class="row-odd"><td><p>510.267</p></td>
+<td><p>238.748</p></td>
+<td><p>valid</p></td>
+<td><p>731522366</p></td>
+<td><p>1619162351541</p></td>
+</tr>
+<tr class="row-even"><td><p>655.38</p></td>
+<td><p>219.609</p></td>
+<td><p>valid</p></td>
+<td><p>731552436</p></td>
+<td><p>1619162351566</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the <a class="reference internal" href="#eyetrackercsvexample"><span class="std std-numref">Table 1</span></a> , we can see the ouptup of the eyetracker data recorded during
+the simulation.</p>
+<p>“x” and “y” are the gazes position on the screen.</p>
+<p>If the eyetracker doesn’t detect the eyes during the simulation, the
+parameter “validity_gaze” is set to “invalid” and for the report all
+invalid data are ignored.</p>
+<p>Timestamp is merely a number for an instant in time. It’s based from the
+processor clock and is counted in micro-seconds. We use it to calculate
+the fixation time and the velocity.</p>
+<p>The Unix Time (“unix_time_ms_gaze” parameter) has been used to
+synchronize the start and the end of the recordings. For the report, all
+data before and after the simulation are ignored.</p>
+<p>Example of eyeTrackerHead.csv file :</p>
+<div class="center docutils container">
+<table class="docutils align-default" id="eyetrackerheadcsvexample">
+<caption><span class="caption-number">Table 2 </span><span class="caption-text">eyeTrackerHead.csv Example</span><a class="headerlink" href="#eyetrackerheadcsvexample" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 11%" />
+<col style="width: 8%" />
+<col style="width: 11%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+<col style="width: 9%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>head_pos_x</p></td>
+<td><p>head_pos_y</p></td>
+<td><p>head_pos_z</p></td>
+<td><p>timestamp_us_head</p></td>
+<td><p>validity_pos</p></td>
+<td><p>unix_time_ms_head</p></td>
+<td><p>head_rot_x</p></td>
+<td><p>head_rot_y</p></td>
+<td><p>head_rot_z</p></td>
+<td><p>validity_rot_x</p></td>
+<td><p>validity_rot_y</p></td>
+<td><p>validity_rot_z</p></td>
+</tr>
+<tr class="row-even"><td><p>-30.9736</p></td>
+<td><p>89.602</p></td>
+<td><p>580.359</p></td>
+<td><p>731425089</p></td>
+<td><p>valid</p></td>
+<td><p>1619162351443</p></td>
+<td><p>0.223097</p></td>
+<td><p>0.0263196</p></td>
+<td><p>0.0778362</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>-30.9749</p></td>
+<td><p>89.5561</p></td>
+<td><p>580.256</p></td>
+<td><p>731455296</p></td>
+<td><p>valid</p></td>
+<td><p>1619162351460</p></td>
+<td><p>0.232375</p></td>
+<td><p>0.017596</p></td>
+<td><p>0.0731111</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+</tr>
+<tr class="row-even"><td><p>-30.9786</p></td>
+<td><p>89.5267</p></td>
+<td><p>580.186</p></td>
+<td><p>731485503</p></td>
+<td><p>valid</p></td>
+<td><p>1619162351486</p></td>
+<td><p>0.24615</p></td>
+<td><p>0.0135308</p></td>
+<td><p>0.0736123</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+</tr>
+<tr class="row-odd"><td><p>-30.9207</p></td>
+<td><p>89.4498</p></td>
+<td><p>579.941</p></td>
+<td><p>731515712</p></td>
+<td><p>valid</p></td>
+<td><p>1619162351521</p></td>
+<td><p>0.253819</p></td>
+<td><p>0.00824669</p></td>
+<td><p>0.0734395</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+</tr>
+<tr class="row-even"><td><p>-30.7682</p></td>
+<td><p>89.259</p></td>
+<td><p>579.301</p></td>
+<td><p>731545921</p></td>
+<td><p>valid</p></td>
+<td><p>1619162351551</p></td>
+<td><p>0.264841</p></td>
+<td><p>0.00560519</p></td>
+<td><p>0.0704814</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+<td><p>valid</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can capture some head position data like the head position in front of the eyetracker and the head rotation (<a class="reference internal" href="#eyetrackerheadcsvexample"><span class="std std-numref">Table 2</span></a>).</p>
+<p>The “timestamp_us_head”, “unix_time_ms_head”, “validity_pos”, “validity_rot_*” are the same parameters as the eyes Data.</p>
+<p><em>Important :</em> The record of the position of the head works only for the
+tobii eye Tracker 5. Otherwise, the eyeTrackerHead.csv will be empty (it
+will only contain the header).</p>
+</section>
+<section id="id3">
+<h3>SDK Pro<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<p>Example eyeTracker.csv file :</p>
+<div class="center docutils container">
+<table class="docutils align-default" id="eyetrackercsvproexample">
+<caption><span class="caption-number">Table 3 </span><span class="caption-text">eyeTracker.csv Example</span><a class="headerlink" href="#eyetrackercsvproexample" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 5%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 10%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>x_gaze</p></td>
+<td><p>y_gaze</p></td>
+<td><p>validity_gaze</p></td>
+<td><p>timestamp_us_gaze</p></td>
+<td><p>unix_time_ms_gaze</p></td>
+<td><p>left_pupil_diameter_millimeters</p></td>
+<td><p>left_pupil_validity</p></td>
+<td><p>right_pupil_diameter_millimeters</p></td>
+<td><p>right_pupil_validity</p></td>
+<td><p>left_eye_x_gaze</p></td>
+<td><p>left_eye_y_gaze</p></td>
+<td><p>left_eye_validity_gaze</p></td>
+<td><p>right_eye_x_gaze</p></td>
+<td><p>right_eye_y_gaze</p></td>
+<td><p>right_eye_validity_gaze</p></td>
+</tr>
+<tr class="row-even"><td><p>234.51786518096924</p></td>
+<td><p>359.00160133838654</p></td>
+<td><p>valid</p></td>
+<td><p>1010711977</p></td>
+<td><p>1624622093795</p></td>
+<td><p>3.8783721923828125</p></td>
+<td><p>1</p></td>
+<td><p>4.2047271728515625</p></td>
+<td><p>1</p></td>
+<td><p>228.95484924316406</p></td>
+<td><p>428.24059009552</p></td>
+<td><p>1</p></td>
+<td><p>240.0808811187744</p></td>
+<td><p>289.76261258125305</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>255.6152057647705</p></td>
+<td><p>350.63529789447784</p></td>
+<td><p>valid</p></td>
+<td><p>1010728632</p></td>
+<td><p>1624622093811</p></td>
+<td><p>3.9310302734375</p></td>
+<td><p>1</p></td>
+<td><p>4.2739105224609375</p></td>
+<td><p>1</p></td>
+<td><p>260.50360679626465</p></td>
+<td><p>432.6551306247711</p></td>
+<td><p>1</p></td>
+<td><p>250.72680473327637</p></td>
+<td><p>268.61546516418457</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>261.92142963409424</p></td>
+<td><p>359.91851449012756</p></td>
+<td><p>valid</p></td>
+<td><p>1010745287</p></td>
+<td><p>1624622093828</p></td>
+<td><p>3.9920806884765625</p></td>
+<td><p>1</p></td>
+<td><p>4.2491912841796875</p></td>
+<td><p>1</p></td>
+<td><p>265.1943111419678</p></td>
+<td><p>419.43352460861206</p></td>
+<td><p>1</p></td>
+<td><p>258.6485481262207</p></td>
+<td><p>300.40350437164307</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-odd"><td><p>258.82033824920654</p></td>
+<td><p>318.9457333087921</p></td>
+<td><p>valid</p></td>
+<td><p>1010761941</p></td>
+<td><p>1624622093845</p></td>
+<td><p>4.1212005615234375</p></td>
+<td><p>1</p></td>
+<td><p>4.25335693359375</p></td>
+<td><p>1</p></td>
+<td><p>261.5834140777588</p></td>
+<td><p>353.34168434143066</p></td>
+<td><p>1</p></td>
+<td><p>256.0572624206543</p></td>
+<td><p>284.54978227615356</p></td>
+<td><p>1</p></td>
+</tr>
+<tr class="row-even"><td><p>256.9408178329468</p></td>
+<td><p>300.7209116220474</p></td>
+<td><p>valid</p></td>
+<td><p>1010778596</p></td>
+<td><p>1624622093862</p></td>
+<td><p>4.1796112060546875</p></td>
+<td><p>1</p></td>
+<td><p>4.255126953125</p></td>
+<td><p>1</p></td>
+<td><p>262.7739429473877</p></td>
+<td><p>322.12003111839294</p></td>
+<td><p>1</p></td>
+<td><p>251.10769271850586</p></td>
+<td><p>279.3217921257019</p></td>
+<td><p>1</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>In the <a class="reference internal" href="#eyetrackercsvproexample"><span class="std std-numref">Table 3</span></a> , we can see the ouptup of the eyetracker data recorded during
+the simulation.</p>
+<p>“x” and “y” are the mean gazes position on the screen of the left and right eyes.</p>
+<p>If the eyetracker doesn’t detect the both eyes during the simulation, the
+parameter “validity_gaze” is set to “invalid” and for the report all
+invalid data are ignored. If only one eye is detected, the “x” and the “y” are the gaze position for this eye.</p>
+<p>Timestamp is merely a number for an instant in time. It’s based from the
+processor clock and is counted in micro-seconds. We use it to calculate
+the fixation time and the velocity.</p>
+<p>The Unix Time (“unix_time_ms_gaze” parameter) has been used to
+synchronize the start and the end of the recordings. For the report, all
+data before and after the simulation are ignored.</p>
+<p>For left and right eyes, we saving the pupil diameter in millimeters and “pupil_validity”, to ensure the validyty of the pupil diameter.</p>
+<p>For both eyes, we saving the gazes “x”, “y” and the validity.</p>
+<p>Example of eyeTrackerHead.csv file :</p>
+<div class="center docutils container">
+<table class="docutils align-default" id="eyetrackerheadprocsvexample">
+<caption><span class="caption-number">Table 4 </span><span class="caption-text">eyeTrackerHead.csv Example</span><a class="headerlink" href="#eyetrackerheadprocsvexample" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 2%" />
+<col style="width: 3%" />
+<col style="width: 3%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 4%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+<col style="width: 7%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>head_pos_x</p></td>
+<td><p>head_pos_y</p></td>
+<td><p>head_pos_z</p></td>
+<td><p>validity_pos</p></td>
+<td><p>timestamp_us_head</p></td>
+<td><p>unix_time_ms_head</p></td>
+<td><p>left_x_gaze_point_in_user_coordinate_system</p></td>
+<td><p>left_y_gaze_point_in_user_coordinate_system</p></td>
+<td><p>left_z_gaze_point_in_user_coordinate_system</p></td>
+<td><p>left_gaze_origin_validity</p></td>
+<td><p>right_x_gaze_point_in_user_coordinate_system</p></td>
+<td><p>right_y_gaze_point_in_user_coordinate_system</p></td>
+<td><p>right_z_gaze_point_in_user_coordinate_system</p></td>
+<td><p>right_gaze_origin_validity</p></td>
+<td><p>left_x_gaze_origin_in_trackbox_coordinate_system</p></td>
+<td><p>left_gaze_y_origin_in_trackbox_coordinate_system</p></td>
+<td><p>left_z_gaze_origin_in_trackbox_coordinate_system</p></td>
+<td><p>right_x_gaze_origin_in_trackbox_coordinate_system</p></td>
+<td><p>right_y_gaze_origin_in_trackbox_coordinate_system</p></td>
+<td><p>right_z_gaze_origin_in_trackbox_coordinate_system</p></td>
+</tr>
+<tr class="row-even"><td><p>8.678815841674805</p></td>
+<td><p>22.54614543914795</p></td>
+<td><p>525.7163391113281</p></td>
+<td><p>valid</p></td>
+<td><p>1010695323</p></td>
+<td><p>1624622093777</p></td>
+<td><p>-25.46792984008789</p></td>
+<td><p>20.452484130859375</p></td>
+<td><p>528.503173828125</p></td>
+<td><p>1</p></td>
+<td><p>42.8255615234375</p></td>
+<td><p>24.639806747436523</p></td>
+<td><p>522.9295043945312</p></td>
+<td><p>1</p></td>
+<td><p>0.581534206867218</p></td>
+<td><p>0.42874208092689514</p></td>
+<td><p>0.25902318954467773</p></td>
+<td><p>0.39626166224479675</p></td>
+<td><p>0.4151560962200165</p></td>
+<td><p>0.2505168318748474</p></td>
+</tr>
+<tr class="row-odd"><td><p>9.445442199707031</p></td>
+<td><p>22.261903762817383</p></td>
+<td><p>525.9622192382812</p></td>
+<td><p>valid</p></td>
+<td><p>1010711977</p></td>
+<td><p>1624622093795</p></td>
+<td><p>-24.515167236328125</p></td>
+<td><p>19.98628807067871</p></td>
+<td><p>528.7755737304688</p></td>
+<td><p>1</p></td>
+<td><p>43.40605163574219</p></td>
+<td><p>24.537519454956055</p></td>
+<td><p>523.1488647460938</p></td>
+<td><p>1</p></td>
+<td><p>0.5789461731910706</p></td>
+<td><p>0.430486798286438</p></td>
+<td><p>0.25944140553474426</p></td>
+<td><p>0.39473435282707214</p></td>
+<td><p>0.41558438539505005</p></td>
+<td><p>0.2510392963886261</p></td>
+</tr>
+<tr class="row-even"><td><p>9.114437103271484</p></td>
+<td><p>23.052979469299316</p></td>
+<td><p>526.6603698730469</p></td>
+<td><p>valid</p></td>
+<td><p>1010728632</p></td>
+<td><p>1624622093811</p></td>
+<td><p>-24.882705688476562</p></td>
+<td><p>20.925498962402344</p></td>
+<td><p>529.4545288085938</p></td>
+<td><p>1</p></td>
+<td><p>43.11157989501953</p></td>
+<td><p>25.18045997619629</p></td>
+<td><p>523.8662109375</p></td>
+<td><p>1</p></td>
+<td><p>0.5798258781433105</p></td>
+<td><p>0.4272003769874573</p></td>
+<td><p>0.26090356707572937</p></td>
+<td><p>0.39568036794662476</p></td>
+<td><p>0.41336506605148315</p></td>
+<td><p>0.2524798512458801</p></td>
+</tr>
+<tr class="row-odd"><td><p>9.147893905639648</p></td>
+<td><p>23.146384239196777</p></td>
+<td><p>527.04638671875</p></td>
+<td><p>valid</p></td>
+<td><p>1010745287</p></td>
+<td><p>1624622093828</p></td>
+<td><p>-24.86520004272461</p></td>
+<td><p>21.102148056030273</p></td>
+<td><p>529.8452758789062</p></td>
+<td><p>1</p></td>
+<td><p>43.160987854003906</p></td>
+<td><p>25.19062042236328</p></td>
+<td><p>524.2474975585938</p></td>
+<td><p>1</p></td>
+<td><p>0.5797252655029297</p></td>
+<td><p>0.4266241788864136</p></td>
+<td><p>0.2616960406303406</p></td>
+<td><p>0.3956315815448761</p></td>
+<td><p>0.4133952558040619</p></td>
+<td><p>0.25324803590774536</p></td>
+</tr>
+<tr class="row-even"><td><p>9.239023208618164</p></td>
+<td><p>23.138446807861328</p></td>
+<td><p>527.7142333984375</p></td>
+<td><p>valid</p></td>
+<td><p>1010761941</p></td>
+<td><p>1624622093845</p></td>
+<td><p>-24.816959381103516</p></td>
+<td><p>21.14855194091797</p></td>
+<td><p>530.5216064453125</p></td>
+<td><p>1</p></td>
+<td><p>43.295005798339844</p></td>
+<td><p>25.128341674804688</p></td>
+<td><p>524.9068603515625</p></td>
+<td><p>1</p></td>
+<td><p>0.5795101523399353</p></td>
+<td><p>0.4265573024749756</p></td>
+<td><p>0.2630452811717987</p></td>
+<td><p>0.39541786909103394</p></td>
+<td><p>0.4137377142906189</p></td>
+<td><p>0.2545768916606903</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We can capture some head position data like the head position in front of the eyetracker and the head rotation (<a class="reference internal" href="#eyetrackerheadprocsvexample"><span class="std std-numref">Table 4</span></a>).</p>
+<p>The “timestamp_us_head”, “unix_time_ms_head”, “validity_pos”, “validity_rot_*” are the same parameters as the eyes Data.</p>
+<p>The “head_pos_*” is the gaze origin (User Coordinates Systems). It’s the means of the both eyes coordinates.</p>
+<p>We also saving for both eyes the the gaze origin and the Track Box Coordinate System.</p>
+</section>
+</section>
+<section id="eye-tracker-algorithm">
+<span id="eyetrackeralgo"></span><h2>Eye Tracker Algorithm<a class="headerlink" href="#eye-tracker-algorithm" title="Permalink to this headline"></a></h2>
+<section id="buscher-algorithm">
+<span id="eyetrackerbuscheralgo"></span><h3>Buscher Algorithm<a class="headerlink" href="#buscher-algorithm" title="Permalink to this headline"></a></h3>
+<p>To process the eyeTracker Data, we use the Buscher Algorithm (See <a class="reference external" href="./documentations/Eye-movements-as-implicit-relevance-feedback.pdf">Buscher Algorithm Documentation</a> .)
+This algorithm take all the gazes and create fixations with gazes close
+to each others. It will first take 4 gazes and check if they all fit in
+the same square (30*30 pixel square in our case, see <a class="reference internal" href="#buscher"><span class="std std-numref">Fig. 30</span></a>), if they all fit in the
+square these gazes become the start of a fixation.</p>
+<p>We then take the next gaze and check if it fit in a bigger square with
+the first ones (50*50 pixel), if it fit we add it to the fixation and go
+to the next gaze.</p>
+<p>If a gaze doesn’t fit in the bigger square it is labelled as a fail (gaze p5 in <a class="reference internal" href="#buscher"><span class="std std-numref">Fig. 30</span></a>) and
+we take the next gaze, if 4 consecutive gazes are labelled as fails the
+fixation end at the last gaze that fit in the bigger square. This
+algorithm allow to ignore the errors during the recording that may
+generate gazes that are separated from the others.</p>
+<p>To start the next fixation we take the first of the 4 gazes that were
+labelled as fails and repeat the steps above.</p>
+<figure class="align-default" id="buscher">
+<a class="reference internal image-reference" href="_images/Fixation_and_saccade_detection.png"><img alt="Buscher algorithm principle" src="_images/Fixation_and_saccade_detection.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">Buscher algorithm principle</span><a class="headerlink" href="#buscher" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To determine the duration of the fixation we subtract the timestamp of
+the first gaze to the one of the last gaze in the fixation. The centre
+of the fixation is defined as the centroid of all the gazes.</p>
+<p>See <a class="reference internal" href="report.html#reporteyetracker"><span class="std std-ref">Eye Tracker</span></a> in <a class="reference internal" href="report.html#report"><span class="std std-ref">Report Mode</span></a> section to view
+an example.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the Buscher Algorithm in python<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="buschercode">
+<div class="code-block-caption"><span class="caption-number">Listing 4 </span><span class="caption-text">Buscher Algorithm</span><a class="headerlink" href="#buschercode" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="c1">#Eye Tracker Buscher Algorithm</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">#return the fixations of the gazes</span>
+<span class="linenos"> 4</span><span class="k">def</span> <span class="nf">fixationBuscher2008</span><span class="p">(</span><span class="n">gazes</span><span class="p">,</span><span class="n">usFixation</span><span class="o">=</span><span class="mi">80000</span><span class="p">,</span><span class="n">smallSquareSize</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span><span class="n">bigSquareSize</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span><span class="n">consecutiveFails</span><span class="o">=</span><span class="mi">4</span><span class="p">):</span>
+<span class="linenos"> 5</span>    <span class="n">fixations</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 6</span>    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 7</span>    <span class="c1">#iterate through all the gazes</span>
+<span class="linenos"> 8</span>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">):</span>
+<span class="linenos"> 9</span>        <span class="n">fixCandidate</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">10</span>        <span class="n">time</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">11</span>        <span class="n">n</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">12</span>        <span class="n">remove_n</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">13</span>
+<span class="linenos">14</span>        <span class="c1">#append gazes in fixCandidate until there is at least 4 and the duration is long enough</span>
+<span class="linenos">15</span>        <span class="k">while</span> <span class="p">((</span><span class="n">time</span><span class="o">&lt;</span><span class="n">usFixation</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">4</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">&lt;=</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)):</span>
+<span class="linenos">16</span>            <span class="n">fixCandidate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">n</span><span class="p">])</span>
+<span class="linenos">17</span>            <span class="n">n</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">18</span>            <span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span>
+<span class="linenos">19</span>        
+<span class="linenos">20</span>        <span class="c1">#check if the fixCandidates fit in the same square</span>
+<span class="linenos">21</span>        <span class="k">if</span> <span class="n">insideSquare</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">,</span><span class="n">smallSquareSize</span><span class="p">):</span>
+<span class="linenos">22</span>            <span class="n">j</span><span class="o">=</span><span class="n">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">)</span>
+<span class="linenos">23</span>            <span class="n">fail</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">24</span>
+<span class="linenos">25</span>            <span class="c1">#add one gaze and check if it fit with the others in a bigger square</span>
+<span class="linenos">26</span>            <span class="k">while</span> <span class="n">j</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">):</span>
+<span class="linenos">27</span>                <span class="n">fixCandidate</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+<span class="linenos">28</span>                <span class="k">if</span> <span class="ow">not</span><span class="p">(</span><span class="n">insideSquare</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">,</span><span class="n">bigSquareSize</span><span class="p">)):</span>
+<span class="linenos">29</span>                    <span class="n">fixCandidate</span> <span class="o">=</span> <span class="n">fixCandidate</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">30</span>                    <span class="n">remove_n</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">31</span>                    <span class="n">fail</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">32</span>                    <span class="c1">#when 4 consecutive gaze don&#39;t fit in the bigger square we leave the loop</span>
+<span class="linenos">33</span>                    <span class="k">if</span> <span class="n">fail</span><span class="o">&gt;=</span><span class="n">consecutiveFails</span><span class="p">:</span>
+<span class="linenos">34</span>                        <span class="n">remove_n</span><span class="o">-=</span><span class="mi">4</span>
+<span class="linenos">35</span>                        <span class="k">break</span>
+<span class="linenos">36</span>                <span class="k">else</span><span class="p">:</span>
+<span class="linenos">37</span>                    <span class="n">fail</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">38</span>                <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">39</span>
+<span class="linenos">40</span>            <span class="c1">#calculate the coordinate and duration of the fixation</span>
+<span class="linenos">41</span>            <span class="n">fixations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centroid</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">))</span>
+<span class="linenos">42</span>            <span class="n">i</span><span class="o">+=</span><span class="nb">len</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">)</span><span class="o">+</span><span class="n">remove_n</span><span class="o">+</span><span class="mi">1</span>
+<span class="linenos">43</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">44</span>            <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">45</span>    <span class="k">return</span> <span class="n">fixations</span>
+<span class="linenos">46</span>
+<span class="linenos">47</span><span class="c1">#check if all the gazes can be fitted in the same square</span>
+<span class="linenos">48</span><span class="k">def</span> <span class="nf">insideSquare</span><span class="p">(</span><span class="n">gazes</span><span class="p">,</span><span class="n">size</span><span class="p">):</span>
+<span class="linenos">49</span>    <span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">gazes</span><span class="p">]</span>
+<span class="linenos">50</span>    <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="nb">float</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">gazes</span><span class="p">]</span>
+<span class="linenos">51</span>    <span class="n">xMin</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">52</span>    <span class="n">xMax</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">53</span>    <span class="n">yMin</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">54</span>    <span class="n">yMax</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">55</span>    <span class="k">if</span> <span class="p">((</span><span class="n">xMax</span><span class="o">-</span><span class="n">xMin</span><span class="p">)</span><span class="o">&lt;</span><span class="n">size</span> <span class="ow">and</span> <span class="p">(</span><span class="n">yMax</span><span class="o">-</span><span class="n">yMin</span><span class="p">)</span><span class="o">&lt;</span><span class="n">size</span><span class="p">):</span>
+<span class="linenos">56</span>        <span class="k">return</span> <span class="kc">True</span>
+<span class="linenos">57</span>    <span class="k">else</span><span class="p">:</span>
+<span class="linenos">58</span>        <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">59</span>
+<span class="linenos">60</span><span class="c1">#return the centroid of the gazes wich is the mean of the x and y coordinate</span>
+<span class="linenos">61</span><span class="k">def</span> <span class="nf">centroid</span><span class="p">(</span><span class="n">gazes</span><span class="p">):</span>
+<span class="linenos">62</span>    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">63</span>    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">64</span>    <span class="n">c</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">65</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)):</span>
+<span class="linenos">66</span>        <span class="n">x</span><span class="o">+=</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">67</span>        <span class="n">y</span><span class="o">+=</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">68</span>    <span class="n">x</span><span class="o">/=</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)</span>
+<span class="linenos">69</span>    <span class="n">y</span><span class="o">/=</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)</span>
+<span class="linenos">70</span>    <span class="c1">#x coordinate</span>
+<span class="linenos">71</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">72</span>    <span class="c1">#y coordinate</span>
+<span class="linenos">73</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">74</span>    <span class="c1">#duration between the first and last gaze</span>
+<span class="linenos">75</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">3</span><span class="p">])))</span>
+<span class="linenos">76</span>    <span class="c1">#unix time of the first gaze</span>
+<span class="linenos">77</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">])</span>
+<span class="linenos">78</span>    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="nystrom-algorithm">
+<span id="eyetrackernystromalgo"></span><h3>Nystrom Algorithm<a class="headerlink" href="#nystrom-algorithm" title="Permalink to this headline"></a></h3>
+<p>Other algorithm exist to process the eye tracker data like the Nystrom algorithm (See <a class="reference external" href="./documentations/Nyström-Holmqvist2010_Article_AnAdaptiveAlgorithmForFixation.pdf">Nystrom Algorithm Documentation</a>).
+It is implemented in Eye Got It and can be used but Buscher is used by default.
+The main difference with Buscher is that Nystrom uses the velocity of the gazes to determine the position of the fixations and saccades.</p>
+<p>The first step is to calculate a main velocity threshold (See <a class="reference internal" href="#nystrom-threshold"><span class="std std-numref">Fig. 31</span></a>).
+It is an iterative process and thus different for each set of data, once we have the main velocity threshold we can detect potential saccades.</p>
+<figure class="align-default" id="nystrom-threshold">
+<a class="reference internal image-reference" href="_images/threshold.png"><img alt="threshold calculation method" src="_images/threshold.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">threshold calculation method</span><a class="headerlink" href="#nystrom-threshold" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For each potential saccades we have to find the onset and the offset, the onset threshold is the same for each saccade but the offset threshold is calculated each time there is a new potential saccade (See <a class="reference internal" href="#nystrom-onset-offset"><span class="std std-numref">Fig. 32</span></a>).</p>
+<figure class="align-default" id="nystrom-onset-offset">
+<a class="reference internal image-reference" href="_images/onset_offset.jpg"><img alt="finding the onset and offset of the saccade" src="_images/onset_offset.jpg" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">finding the onset and offset of the saccade</span><a class="headerlink" href="#nystrom-onset-offset" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>Once we have determine the position of the saccades we just have to take the remaining gazes between the saccades and form fixations.</p>
+<p>See <a class="reference internal" href="report.html#reporteyetracker"><span class="std std-ref">Eye Tracker</span></a> in <a class="reference internal" href="report.html#report"><span class="std std-ref">Report Mode</span></a> section to view
+an example.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the Nystrom Algorithm in python<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="nystromrcode">
+<div class="code-block-caption"><span class="caption-number">Listing 5 </span><span class="caption-text">Nystrom Algorithm</span><a class="headerlink" href="#nystromrcode" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1">#Eye Tracker Buscher Algorithm</span>
+<span class="linenos">  2</span>
+<span class="linenos">  3</span><span class="kn">import</span> <span class="nn">statistics</span>
+<span class="linenos">  4</span>
+<span class="linenos">  5</span><span class="c1">#return the saccades, glissades and fixations of the gazes</span>
+<span class="linenos">  6</span><span class="k">def</span> <span class="nf">Nystrom</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">):</span>
+<span class="linenos">  7</span>    <span class="n">sacTab</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">  8</span>    <span class="n">gliTab</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">  9</span>    <span class="n">fixTab</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 10</span>    <span class="n">fixCandidate</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 11</span>    <span class="c1">#convertedGazes hold the position, velocity and acceleration of each gaze</span>
+<span class="linenos"> 12</span>    <span class="c1">#convertedGazes=VelocityInDeg(gazes,headGazes)</span>
+<span class="linenos"> 13</span>    <span class="sd">&quot;&quot;&quot;velocity=np.zeros(len(convertedGazes))</span>
+<span class="linenos"> 14</span><span class="sd">    for i in range(0,len(convertedGazes)):</span>
+<span class="linenos"> 15</span><span class="sd">        velocity[i]=convertedGazes[i][3]</span>
+<span class="linenos"> 16</span><span class="sd">        print(convertedGazes[i][3])</span>
+<span class="linenos"> 17</span><span class="sd">    print(velocity)</span>
+<span class="linenos"> 18</span><span class="sd">    plt.plot(velocity)</span>
+<span class="linenos"> 19</span><span class="sd">    plt.show()&quot;&quot;&quot;</span>
+<span class="linenos"> 20</span>    <span class="c1">#calculate velocity treshold in deg/sec</span>
+<span class="linenos"> 21</span>    <span class="n">vt</span><span class="o">=</span><span class="mi">200</span>
+<span class="linenos"> 22</span>    <span class="n">vtn</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 23</span>    <span class="n">glissadeAvancement</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 24</span>    <span class="n">firstIteration</span><span class="o">=</span><span class="kc">True</span>
+<span class="linenos"> 25</span>    <span class="k">while</span> <span class="nb">abs</span><span class="p">(</span><span class="n">vtn</span><span class="o">-</span><span class="n">vt</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 26</span>        <span class="k">if</span> <span class="n">firstIteration</span><span class="p">:</span>
+<span class="linenos"> 27</span>            <span class="n">firstIteration</span><span class="o">=</span><span class="kc">False</span>
+<span class="linenos"> 28</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 29</span>            <span class="n">vt</span><span class="o">=</span><span class="n">vtn</span>
+<span class="linenos"> 30</span>        <span class="n">sample</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 31</span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">)):</span>
+<span class="linenos"> 32</span>            <span class="k">if</span> <span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">&lt;</span><span class="n">vt</span><span class="p">:</span>
+<span class="linenos"> 33</span>                <span class="n">sample</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span> 
+<span class="linenos"> 34</span>        <span class="n">mean</span><span class="o">=</span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="linenos"> 35</span>        <span class="n">d</span><span class="o">=</span><span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="linenos"> 36</span>        <span class="n">vtn</span><span class="o">=</span><span class="n">mean</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">d</span>
+<span class="linenos"> 37</span>        <span class="c1">#print(&quot;mean=&quot;,mean,&quot; deviation=&quot;,d,&quot; vt=&quot;,vt,&quot; vtn=&quot;,vtn)</span>
+<span class="linenos"> 38</span>    <span class="n">onSetVt</span><span class="o">=</span><span class="n">mean</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">d</span>
+<span class="linenos"> 39</span>    <span class="n">offSetVt</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 40</span>    <span class="c1">#detect saccades</span>
+<span class="linenos"> 41</span>    <span class="n">i</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 42</span>    <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">):</span>
+<span class="linenos"> 43</span>        <span class="c1">#begin saccade detection when velocity is above vtn</span>
+<span class="linenos"> 44</span>        <span class="k">if</span> <span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;</span><span class="n">vtn</span><span class="p">:</span>
+<span class="linenos"> 45</span>            <span class="c1">#print(&quot;vitesse=&quot;,convertedGazes[i][3])</span>
+<span class="linenos"> 46</span>            <span class="c1">#print(&quot;i=&quot;,i)</span>
+<span class="linenos"> 47</span>            <span class="n">j</span><span class="o">=</span><span class="n">i</span>
+<span class="linenos"> 48</span>            <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<span class="linenos"> 49</span>            <span class="c1">#detect the onset of the saccade</span>
+<span class="linenos"> 50</span>            <span class="k">while</span> <span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;</span><span class="n">onSetVt</span> <span class="ow">or</span> <span class="n">previous</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span> <span class="ow">and</span> <span class="n">j</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 51</span>                <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">]</span>
+<span class="linenos"> 52</span>                <span class="n">j</span><span class="o">-=</span><span class="mi">1</span>
+<span class="linenos"> 53</span>                <span class="c1">#j is the index of the beginning of the saccade</span>
+<span class="linenos"> 54</span>            <span class="n">k</span><span class="o">=</span><span class="n">i</span>
+<span class="linenos"> 55</span>            <span class="n">sample</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 56</span>            <span class="c1">#collect samples over a 40 millisecond window to calculate local offset treshold</span>
+<span class="linenos"> 57</span>            <span class="k">while</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span><span class="o">&lt;=</span><span class="mi">40000</span><span class="p">:</span>
+<span class="linenos"> 58</span>                <span class="n">sample</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span>
+<span class="linenos"> 59</span>                <span class="n">k</span><span class="o">-=</span><span class="mi">1</span>
+<span class="linenos"> 60</span>                <span class="c1">#print(&quot;duration=&quot;,int(convertedGazes[i][2])-int(convertedGazes[k][2]))</span>
+<span class="linenos"> 61</span>                <span class="k">if</span> <span class="n">k</span><span class="o">&lt;</span><span class="mi">0</span><span class="p">:</span>
+<span class="linenos"> 62</span>                    <span class="k">break</span>
+<span class="linenos"> 63</span>            <span class="c1">#print(&quot;sample=&quot;,sample)</span>
+<span class="linenos"> 64</span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 65</span>                <span class="n">mean</span><span class="o">=</span><span class="n">sample</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="linenos"> 66</span>                <span class="n">d</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 67</span>            <span class="k">else</span><span class="p">:</span>
+<span class="linenos"> 68</span>                <span class="n">mean</span><span class="o">=</span><span class="n">statistics</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="linenos"> 69</span>                <span class="n">d</span><span class="o">=</span><span class="n">statistics</span><span class="o">.</span><span class="n">stdev</span><span class="p">(</span><span class="n">sample</span><span class="p">)</span>
+<span class="linenos"> 70</span>            <span class="c1">#offset treshold is a weighted combinaison of the onset and a local treshold</span>
+<span class="linenos"> 71</span>            <span class="n">offSetVt</span><span class="o">=</span><span class="p">(</span><span class="mf">0.7</span><span class="o">*</span><span class="n">onSetVt</span><span class="p">)</span><span class="o">+</span><span class="p">(</span><span class="mf">0.3</span><span class="o">*</span><span class="p">(</span><span class="n">mean</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">d</span><span class="p">))</span>
+<span class="linenos"> 72</span>            <span class="c1">#print(&quot;offSet=&quot;,offSetVt)</span>
+<span class="linenos"> 73</span>            <span class="n">k</span><span class="o">=</span><span class="n">i</span>
+<span class="linenos"> 74</span>            <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="linenos"> 75</span>            <span class="c1">#detect the onset of the saccade</span>
+<span class="linenos"> 76</span>            <span class="k">while</span> <span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;</span><span class="n">offSetVt</span> <span class="ow">or</span> <span class="n">previous</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span> <span class="ow">and</span> <span class="n">k</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 77</span>                <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+<span class="linenos"> 78</span>                <span class="n">k</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos"> 79</span>                <span class="c1">#k is the index of the end of the saccade</span>
+<span class="linenos"> 80</span>            <span class="n">duration</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="linenos"> 81</span>            <span class="c1">#print(&quot;duration=&quot;,duration)</span>
+<span class="linenos"> 82</span>            <span class="k">if</span> <span class="p">(</span><span class="n">duration</span><span class="o">&gt;</span><span class="mi">10000</span><span class="p">):</span>    
+<span class="linenos"> 83</span>                <span class="c1">#if the saccade is long enough(&gt;10ms) we add it to sacTab</span>
+<span class="linenos"> 84</span>                <span class="n">sacTab</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">duration</span><span class="p">,</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">5</span><span class="p">]])</span>
+<span class="linenos"> 85</span>                <span class="c1">#create fixations with the gazes previously added to fixCandidate</span>
+<span class="linenos"> 86</span>                <span class="k">if</span> <span class="n">fixCandidate</span><span class="p">:</span>
+<span class="linenos"> 87</span>                    <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">&gt;</span><span class="mi">40000</span><span class="p">:</span>
+<span class="linenos"> 88</span>                        <span class="n">fixTab</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">centroid</span><span class="p">(</span><span class="n">fixCandidate</span><span class="p">))</span>
+<span class="linenos"> 89</span>                        <span class="n">fixCandidate</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos"> 90</span>                <span class="c1">#glissade detection, k the offset of the saccade is consiered the onset of the glissade</span>
+<span class="linenos"> 91</span>                <span class="n">l</span><span class="o">=</span><span class="n">k</span>
+<span class="linenos"> 92</span>                <span class="k">while</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">]))</span><span class="o">&lt;</span><span class="mi">40000</span> <span class="ow">and</span> <span class="n">l</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 93</span>                    <span class="c1">#a glissade must go above the offset velocity treshold</span>
+<span class="linenos"> 94</span>                    <span class="k">if</span> <span class="n">convertedGazes</span><span class="p">[</span><span class="n">l</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;</span><span class="n">offSetVt</span><span class="p">:</span>
+<span class="linenos"> 95</span>                        <span class="n">m</span><span class="o">=</span><span class="n">l</span>
+<span class="linenos"> 96</span>                        <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+<span class="linenos"> 97</span>                        <span class="k">while</span> <span class="n">previous</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">&gt;=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span> <span class="ow">and</span> <span class="n">m</span><span class="o">&lt;</span><span class="nb">len</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span class="linenos"> 98</span>                            <span class="n">previous</span><span class="o">=</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
+<span class="linenos"> 99</span>                            <span class="n">m</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">100</span>                        <span class="n">gDuration</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="linenos">101</span>                        <span class="c1">#print(&quot;gDuration=&quot;,duration)</span>
+<span class="linenos">102</span>                        <span class="c1">#only glissades with a smaller duration than the previous saccade are recorded</span>
+<span class="linenos">103</span>                        <span class="k">if</span> <span class="n">gDuration</span><span class="o">&lt;</span><span class="n">duration</span><span class="p">:</span>
+<span class="linenos">104</span>                            <span class="n">gliTab</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">m</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">duration</span><span class="p">,</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="mi">5</span><span class="p">]])</span>
+<span class="linenos">105</span>                            <span class="n">glissadeAvancement</span><span class="o">=</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos">106</span>                            <span class="k">break</span>
+<span class="linenos">107</span>                    <span class="n">l</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">108</span>                <span class="c1">#print(&quot;on avance de &quot;,(k-i),&quot;apres la saccade&quot;)</span>
+<span class="linenos">109</span>                <span class="c1">#print(&quot;on avance de &quot;,glissadeAvancement,&quot;apres la glissade&quot;)</span>
+<span class="linenos">110</span>                <span class="n">i</span><span class="o">+=</span><span class="p">(</span><span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">glissadeAvancement</span>
+<span class="linenos">111</span>                <span class="n">glissadeAvancement</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">112</span>        
+<span class="linenos">113</span>        <span class="c1">#all gazes that are below the treshold are appended to fixCandidate and when a saccade is detected a fixation is created with the candidate and appended to fixTab</span>
+<span class="linenos">114</span>        <span class="k">else</span><span class="p">:</span>
+<span class="linenos">115</span>            <span class="n">fixCandidate</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="n">convertedGazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">5</span><span class="p">]])</span>
+<span class="linenos">116</span>        <span class="n">i</span><span class="o">+=</span><span class="mi">1</span>
+<span class="linenos">117</span>    <span class="c1">#print(&quot;velocity treshold=&quot;,vtn)</span>
+<span class="linenos">118</span>    <span class="k">return</span> <span class="n">sacTab</span><span class="p">,</span><span class="n">gliTab</span><span class="p">,</span><span class="n">fixTab</span>
+<span class="linenos">119</span>
+<span class="linenos">120</span><span class="c1">#return the centroid of the gazes wich is the mean of the x and y coordinate</span>
+<span class="linenos">121</span><span class="k">def</span> <span class="nf">centroid</span><span class="p">(</span><span class="n">gazes</span><span class="p">):</span>
+<span class="linenos">122</span>    <span class="n">x</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">123</span>    <span class="n">y</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">124</span>    <span class="n">c</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">125</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)):</span>
+<span class="linenos">126</span>        <span class="n">x</span><span class="o">+=</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="linenos">127</span>        <span class="n">y</span><span class="o">+=</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<span class="linenos">128</span>    <span class="n">x</span><span class="o">/=</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)</span>
+<span class="linenos">129</span>    <span class="n">y</span><span class="o">/=</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)</span>
+<span class="linenos">130</span>    <span class="c1">#x coordinate</span>
+<span class="linenos">131</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="linenos">132</span>    <span class="c1">#y coordinate</span>
+<span class="linenos">133</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="linenos">134</span>    <span class="c1">#duration between the first and last gaze</span>
+<span class="linenos">135</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])))</span>
+<span class="linenos">136</span>    <span class="c1">#unix time of the first gaze</span>
+<span class="linenos">137</span>    <span class="n">c</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">4</span><span class="p">])</span>
+<span class="linenos">138</span>    <span class="k">return</span> <span class="n">c</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+<section id="gaze-velocity-and-acceleration">
+<span id="eyetrackergazevelocityacceleration"></span><h3>Gaze Velocity and Acceleration<a class="headerlink" href="#gaze-velocity-and-acceleration" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="velocitygazefig">
+<a class="reference internal image-reference" href="_images/600px-EyeOpticsV400y.svg.png"><img alt="Gaze Velocity and Acceleration" src="_images/600px-EyeOpticsV400y.svg.png" style="width: 50.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Gaze Velocity and Acceleration</span><a class="headerlink" href="#velocitygazefig" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The unit we use for the reading speed is the degree of visual angle per
+second. It is the angle the eye make in a second so to calculate it we
+need the distance of the user from the screen. The sizeInDeg
+function convert the distance in pixel we give to it to degrees of
+visual angle then velocityInDeg calculate the velocity and
+acceleration for each gaze.</p>
+<details class="sphinx-bs dropdown card mb-3">
+<summary class="summary-title card-header">
+Click to view the VelocityInDeg and sizeInDeg function<div class="summary-down docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
+<div class="summary-up docutils">
+<svg version="1.1" width="24" height="24" class="octicon octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
+</summary><div class="summary-content card-body docutils">
+<div class="literal-block-wrapper docutils container" id="velocityindeg">
+<div class="code-block-caption"><span class="caption-number">Listing 6 </span><span class="caption-text">VelocityInDeg function</span><a class="headerlink" href="#velocityindeg" title="Permalink to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="kn">import</span> <span class="nn">math</span>
+<span class="linenos"> 2</span>
+<span class="linenos"> 3</span><span class="c1">#import python Module</span>
+<span class="linenos"> 4</span><span class="kn">import</span> <span class="nn">Config</span>
+<span class="linenos"> 5</span>
+<span class="linenos"> 6</span><span class="c1">#return the velocity and acceleration of the gazes in degrees of visual angle per second</span>
+<span class="linenos"> 7</span><span class="k">def</span> <span class="nf">VelocityInDeg</span><span class="p">(</span><span class="n">gazes</span><span class="p">,</span><span class="n">headGazes</span><span class="p">):</span>
+<span class="linenos"> 8</span>    <span class="n">velocity</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos"> 9</span>    <span class="n">acceleration</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">10</span>    <span class="n">duration</span><span class="o">=</span><span class="mi">0</span>
+<span class="linenos">11</span>    <span class="n">outGazes</span><span class="o">=</span><span class="p">[]</span>
+<span class="linenos">12</span>    <span class="c1">#get height of the screen in millimeters</span>
+<span class="linenos">13</span>    <span class="n">h</span><span class="o">=</span><span class="n">Config</span><span class="o">.</span><span class="n">PHYSICAL_SCREEN_HEIGHT</span>
+<span class="linenos">14</span>    <span class="c1">#get distance from the screen in millimeters</span>
+<span class="linenos">15</span>    
+<span class="linenos">16</span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">headGazes</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+<span class="linenos">17</span>        <span class="k">return</span> <span class="kc">False</span>
+<span class="linenos">18</span>    <span class="n">d</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">headGazes</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>
+<span class="linenos">19</span>
+<span class="linenos">20</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">gazes</span><span class="p">)):</span>
+<span class="linenos">21</span>        <span class="c1">#calculate the distance between this gazes and the previous one in pixel</span>
+<span class="linenos">22</span>        <span class="n">s</span><span class="o">=</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="o">+</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+<span class="linenos">23</span>        <span class="c1">#find the current distance from the screen</span>
+<span class="linenos">24</span>        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">headGazes</span><span class="p">)):</span>
+<span class="linenos">25</span>            <span class="c1">#compare timestamps</span>
+<span class="linenos">26</span>            <span class="k">if</span> <span class="nb">float</span><span class="p">(</span><span class="n">headGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">4</span><span class="p">])</span><span class="o">&gt;=</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">]):</span>
+<span class="linenos">27</span>                <span class="n">d</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">headGazes</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">/</span><span class="mi">10</span>
+<span class="linenos">28</span>                <span class="k">break</span>
+<span class="linenos">29</span>        <span class="c1">#convert size in pixel to degrees of visual angle</span>
+<span class="linenos">30</span>        <span class="n">s</span><span class="o">=</span><span class="n">sizeInDeg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">s</span><span class="p">)</span>
+<span class="linenos">31</span>        <span class="c1">#calculate velocity in degrees of visual angle per second</span>
+<span class="linenos">32</span>        <span class="n">temp</span><span class="o">=</span><span class="n">velocity</span>
+<span class="linenos">33</span>        <span class="n">duration</span><span class="o">=</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">])</span><span class="o">-</span><span class="nb">float</span><span class="p">(</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">3</span><span class="p">]))</span><span class="o">/</span><span class="mi">10</span><span class="o">**</span><span class="mi">6</span>
+<span class="linenos">34</span>        <span class="n">velocity</span><span class="o">=</span><span class="n">s</span><span class="o">/</span><span class="n">duration</span>
+<span class="linenos">35</span>        <span class="n">acceleration</span><span class="o">=</span><span class="p">(</span><span class="n">velocity</span><span class="o">-</span><span class="n">temp</span><span class="p">)</span><span class="o">/</span><span class="n">duration</span>
+<span class="linenos">36</span>        <span class="n">outGazes</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">3</span><span class="p">],</span><span class="n">velocity</span><span class="p">,</span><span class="n">acceleration</span><span class="p">,</span><span class="n">gazes</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">4</span><span class="p">]])</span>
+<span class="linenos">37</span>    <span class="k">return</span> <span class="n">outGazes</span>
+<span class="linenos">38</span>
+<span class="linenos">39</span><span class="c1">#return the size in degrees of visual angle of the distance &quot;s&quot; in pixel</span>
+<span class="linenos">40</span><span class="k">def</span> <span class="nf">sizeInDeg</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">s</span><span class="p">):</span>
+<span class="linenos">41</span>    <span class="c1">#&quot;h&quot;(height of the screen) and &quot;d&quot;(distance from the screen) in millimeters</span>
+<span class="linenos">42</span>    <span class="n">r</span><span class="o">=</span><span class="n">Config</span><span class="o">.</span><span class="n">SCREEN_HEIGHT</span>
+<span class="linenos">43</span>    <span class="c1"># Calculate the number of degrees that correspond to a single pixel</span>
+<span class="linenos">44</span>    <span class="n">deg_per_px</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">h</span><span class="p">,</span> <span class="n">d</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="n">r</span><span class="p">)</span>
+<span class="linenos">45</span>    <span class="c1"># Calculate the size of the stimulus in degrees</span>
+<span class="linenos">46</span>    <span class="n">size_in_deg</span> <span class="o">=</span> <span class="n">s</span> <span class="o">*</span> <span class="n">deg_per_px</span>
+<span class="linenos">47</span>    <span class="k">return</span><span class="p">(</span><span class="n">size_in_deg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</details></section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="EyeVoiceSpan.html" class="btn btn-neutral float-right" title="Eye-voice Span" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

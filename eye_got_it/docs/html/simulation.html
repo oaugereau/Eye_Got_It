@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulation Mode &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Report Mode" href="report.html" />
+    <link rel="prev" title="Welcome Windows" href="welcome.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Simulation Mode</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-configuration">Simulation Configuration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#simulation-init">Simulation Init :</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#random-simulation">Random Simulation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#simulation-windows">Simulation Windows</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#start-the-simulation">Start the simulation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#select-the-words-not-understood">Select the words not understood</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Simulation Mode</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/simulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="simulation-mode">
+<span id="simulation"></span><h1>Simulation Mode<a class="headerlink" href="#simulation-mode" title="Permalink to this headline"></a></h1>
+<section id="simulation-configuration">
+<span id="simulationconfigurationwindows"></span><h2>Simulation Configuration<a class="headerlink" href="#simulation-configuration" title="Permalink to this headline"></a></h2>
+<section id="simulation-init">
+<span id="simulationinit"></span><h3>Simulation Init :<a class="headerlink" href="#simulation-init" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="simulationconfigwindows">
+<a class="reference internal image-reference" href="_images/simulation_config.png"><img alt="Simulation Config" src="_images/simulation_config.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Simulation Config</span><a class="headerlink" href="#simulationconfigwindows" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In the simulation Init ( <a class="reference internal" href="#simulationconfigwindows"><span class="std std-numref">Fig. 3</span></a> ) the user can select the database, the audio
+and video setting (if the user want the audio and the video) and “Allow
+Eye Tracker recoding” if the user want to use an Eye Tracker.</p>
+<p>If you want, you can test operation of the audio, video and the Eye Tracker (by checking “Allow” and select the input). See <a class="reference internal" href="parameters.html#parametershardwaretest"><span class="std std-ref">Hardware Test</span></a> in <a class="reference internal" href="parameters.html#parameters"><span class="std std-ref">Parameters</span></a> section.</p>
+<p>“Random text selection” can create a random list of text (with different language, level, … ).</p>
+<p><strong>Important : Calibrate Eye tracker before use it !</strong></p>
+</section>
+<section id="random-simulation">
+<span id="simulationrandomsimulation"></span><h3>Random Simulation<a class="headerlink" href="#random-simulation" title="Permalink to this headline"></a></h3>
+<p>When the user select ”Random text selection”, new options appear (<a class="reference internal" href="#randomsimulationwindows"><span class="std std-numref">Fig. 4</span></a> )</p>
+<figure class="align-default" id="randomsimulationwindows">
+<a class="reference internal image-reference" href="_images/random_simulation.png"><img alt="Random Simulation" src="_images/random_simulation.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Random Simulation</span><a class="headerlink" href="#randomsimulationwindows" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The user can select how many texts he wants. If the database is
+categorized by level, you can specify if you want a random level or
+select a level of your choice for the ramdom simulation. It’s the same
+for the language (if the database is categorized by language). See the
+database section for more details.</p>
+</section>
+</section>
+<section id="simulation-windows">
+<span id="simulationsimulationwindows"></span><h2>Simulation Windows<a class="headerlink" href="#simulation-windows" title="Permalink to this headline"></a></h2>
+<section id="start-the-simulation">
+<span id="simulationstartsimulation"></span><h3>Start the simulation<a class="headerlink" href="#start-the-simulation" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="simulationmodewindows">
+<a class="reference internal image-reference" href="_images/simulation_mode.png"><img alt="Simulation Mode Windows" src="_images/simulation_mode.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Simulation Mode</span><a class="headerlink" href="#simulationmodewindows" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In simulation mode (<a class="reference internal" href="#simulationmodewindows"><span class="std std-numref">Fig. 5</span></a>) the user can choose the language, the level (if
+the database is categorized by language, level or both), then choose the
+text. In random simulation, the user can only choose among the list of
+text selected randomly. To display the text the user must click on the
+“select” button.</p>
+<p>The user can navigate between the pages by pressing the ’a’ and ’q’ keys
+to go to the previous page and ’e’ and ’d’ for the next page.</p>
+<p>When the user click on “start simulation”, the windows is hidden and
+reappears after one second approxymately (to make sure that the
+Eye Tracker is recording). A red text “Recording” appears to show the
+user that the simulation is in progress. The word coordinates are saved (See <a class="reference internal" href="simulationTechnical.html#simulationwordscoordinates"><span class="std std-ref">Words Coordinates</span></a> for more informations)</p>
+<p>When the user stop the simulation (by pressing the enter key on keyboard
+or by clicking on the “stop simulation” button), he can then select the
+words not understood. If the simulation is in random mode, the current text is deleted from the text
+list.</p>
+</section>
+<section id="select-the-words-not-understood">
+<span id="simulationselectwords"></span><h3>Select the words not understood<a class="headerlink" href="#select-the-words-not-understood" title="Permalink to this headline"></a></h3>
+<figure class="align-default" id="selectwordwindows">
+<a class="reference internal image-reference" href="_images/select_word.png"><img alt="Select understood word" src="_images/select_word.png" style="width: 90.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Select understood word</span><a class="headerlink" href="#selectwordwindows" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In this windows (<a class="reference internal" href="#selectwordwindows"><span class="std std-numref">Fig. 6</span></a>) , the user can add words not understood by selecting
+it and clicking on “Add Word” (one word at a time).</p>
+<p>If the user want to remove words not understood, the user must reselect the word and clicking on “Remove Word” (one word at a time).</p>
+<p>When all the words are selected the user can click on “Save” and the
+list of words not understood is saved in a file named ”textPart.txt”. If
+a MCQ as been created for this text, a popup ask the user if he want to
+do this MCQ. See <a class="reference internal" href="mcq.html#mcqanswer"><span class="std std-ref">Answer MCQ</span></a> in <a class="reference internal" href="mcq.html#mcq"><span class="std std-ref">MCQ</span></a> section.</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="welcome.html" class="btn btn-neutral float-left" title="Welcome Windows" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="report.html" class="btn btn-neutral float-right" title="Report Mode" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

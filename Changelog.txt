@@ -1,0 +1,157 @@
+Changelog :
+
+6.0: 2021-12-15:
+Validation of Eye Tracker recording
+Calculating the Eye-voice Span
+Combining EVS and Validation
+updating the documentation accordingly 
+Adding installation script 
+
+5.1: 2021-07-01:
+Final Eye Got It version
+Bug fixed
+Documentation improved
+
+5.0: 2021-06-30
+Final Eye Got It version
+Bug fixed
+Improve User Interaction
+Add final Documentation
+
+4.4: 2021-06-25
+add sphinx documentation in Eye Got it
+bug fixed in report
+improve user interaction
+improve initial setup
+add action units during report generation
+manage action units
+
+4.3: 2021-06-23
+bug correction
+report generation improved : multiple report with multiple algorithm (buscher and nystrom) and with multiple machine learning support
+simulation config, add audio and video test
+in report folder one folder by algorithm and one folder by machine learning inside
+update report without delete report
+
+4.2.1: 2021-06-21 
+Bug fixed in eye Tracker calibration test 
+
+4.2: 2021-06-18
+Add Eye Tracker test Calibration
+User interaction improved
+support record session and multiple report generation
+bug correction
+Add Nystrom algorithm
+
+4.1: 2021-06-14
+Bug fixed for audio and opencv
+Disable Eye Tracker test because it's not necessary to has it
+Bug fixed for text adaptation function and save word coordinate
+
+4.0: 2021-06-11
+Add machine learning
+New report and simulation config windows
+Opencv bug fixed
+Add Tobii SDK pro for Eye Tracker Pro
+Bug fixed
+
+
+3.3: 2021-05-26
+Change CSV format 
+Bug fixed 
+Add Documentation 
+Create Machine learning code (not integrated)
+
+
+3.2: 2021-04-26
+Changing MCQ CSV File : now in columns + header
+Changing Answer CSV MCQ File : now in columns + header
+Changing User CSV File : now in columns + header
+Bug correction in user management
+
+
+3.1: 2021-04-26
+Bug in choose text to create MCQ fixed
+Bug in MCQ creator answer fixed
+New report.txt
+MCQ viewer in simulation improved and reworked (new display and current number question display)
+Display current number question in MCQ creator
+Database bug fixed
+MCQ Creation reworked
+Added OpenFace for to process video
+Video processed with OpenFace + video popup
+Report Function added new features
+Ask "Open the Folder at the end" by checkbox when generate report
+
+
+3.0-1: 2021-04-19
+Bug in MCQ save answer fixed
+Bug in Parameter windows fixed
+
+
+3.0: 2021-04-19
+MCQ Management improved and reworked
+Parameters windows improved and reworked
+New Database type supported
+Random simulation
+report improved and reworked
+calcul speed in degrees of visual angle /s
+Help windows added
+EyeTracker Head capturing (only for eyetracker 5)
+Eye Tracker 5 supported
+Video processing to get faces and eyes position (and display estimated time)
+Nystrom algorithm implemented but not used, we used Buscher instead
+Better interface navigation
+
+
+2.0: 2021-04-02
+MCQ Management (create and edit)
+Database Management (create and edit)
+Video record by webcam added
+Sound bug fixed
+Buscher algorithm implementation
+gaze and fixation save to csv
+Create Report added
+Simulation bug fixed
+User Management bug fixed
+Parameters add "video test" function
+Parameters sound "test bug" fixed
+eye tracker support (capture data)
+eye tracker save page to csv
+overall windows navigation improved
+save UNIX Time for page and sound and video
+
+
+1.2 : 2021-03-22
+database and user folder now are in User personnal folder 
+sound test (record and listen) added in parameter windows
+mcq answer added in mcq config
+
+
+1.1 : 2021-03-19
+New Simulation windows
+display label "recording" when simulation start
+display "How to use simulation mode"
+Database management
+page gestion for text if the text is too long
+screenshot of each text page in simulation mode
+bug correction
+remove unnecessary features 
+rework of save word coordonates feature
+text display space line
+clean code
+
+
+1.0 : 2021-03-16
+First Release 
+save word position
+adding mcq
+user gestion
+highlighting of words not understood 
+sound recording added
+select text in list and display it
+switch from tkinter to pyQt5 
+save mcq answers
+parameters gestion (config.ini and parameters windows)
+
+

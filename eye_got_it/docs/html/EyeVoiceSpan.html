@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eye-voice Span &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Compilation" href="compilation.html" />
+    <link rel="prev" title="Eye Tracker" href="eyeTracker.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="requirement.html">Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Eye-voice Span</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#eye-voice-span-theory-and-explanation">Eye-voice Span : Theory and explanation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#references">References:</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation">Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maus">MAUS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-maus">What is MAUS?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#the-aim-from-maus">The aim from MAUS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-it-works">How it works</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#evs-algorithm">EVS algorithm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evs-results">EVS results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#evs-observations-et-discussion">EVS observations et discussion</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#maus-accuracy-and-stability-evaluation">MAUS Accuracy and Stability evaluation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#first-test-mismatched-text-and-audio-files">First test: Mismatched text and audio files</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#second-test-stuttering-on-certain-words-or-repeating-certain-words-completely">Second Test: Stuttering on certain words or repeating certain words completely</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Eye-voice Span</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/EyeVoiceSpan.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="eye-voice-span">
+<span id="eyevoicespan"></span><h1>Eye-voice Span<a class="headerlink" href="#eye-voice-span" title="Permalink to this headline"></a></h1>
+<section id="eye-voice-span-theory-and-explanation">
+<span id="eyevoicespantheory"></span><h2>Eye-voice Span : Theory and explanation<a class="headerlink" href="#eye-voice-span-theory-and-explanation" title="Permalink to this headline"></a></h2>
+<p>An effective way to evaluate the cognitive process of reading a text aloud during the simulation (or multiple texts with different difficulty levels for that matter) is to determine the variation of the eye-voice span or EVS.</p>
+<p>EVS is the distance between eye and voice and typically we usually find that the eye leads over voice position. Studying the variation of this distance during the reading process can be a strong indicator of linguistic proficiency and also an accurate predictor of the durations of eye fixations (more than word frequency or even word length) (<a class="reference external" href="https://loop.frontiersin.org/people/204143/overview">Laubrock J.</a> , <a class="reference external" href="https://loop.frontiersin.org/people/9008/overview">Kliegl R.</a> 2015).</p>
+<figure class="align-default" id="evs">
+<a class="reference internal image-reference" href="_images/An-example-of-the-method-used-to-measure-the-eye-voice-lead-is-reported-for-a-typically_W640.jpg"><img alt="Example of Eye-Voice lead in a typically developed reader" src="_images/An-example-of-the-method-used-to-measure-the-eye-voice-lead-is-reported-for-a-typically_W640.jpg" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">An example of the method used to measure the eye-voice lead is reported for a typically developed reader. Figure was uploaded by Pierluigi Zoccolotti.</span><a class="headerlink" href="#evs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>The eye-voice span has been used in a study published in the Frontiers in Human Neuroscience (De Luca M., Pontillo M., Primativo S., Spinelli D, Zoccolotti P. 2013) to evaluate the eye-voice lead in dyslexic individual compared to typically developed readers. The study listed compelling data backing and confirming early observations by Buswell (1921) and Fairbanks (1937) that the EVS was, in fact, significantly smaller in dyslexic than control readers with greater number of silent pauses alongside an increased number of eye fixations.</p>
+<p>Although our use case is different from the study’s as previously mentioned, the use of EVS and determining its variation during a simulation will give us theoretically a concrete and deterministic parameter to evaluate a language proficiency level. And, since we already have successfully extracted the fixations and saccades from the eye gaze input data, the next step will be to analyse these fixations and the recorded voice together and determine the actual EVS variation.</p>
+<p>In the next sections, we will discuss the tools that we used to evaluate the eye-voice span and how we integrated this feature into the existing application, the final results that we obtained and an overall discussion and critiques.</p>
+<section id="references">
+<h3>References:<a class="headerlink" href="#references" title="Permalink to this headline"></a></h3>
+<p>Laubrock J, Kliegl R. The eye-voice span during reading aloud. Front Psychol. 2015;6:1432. Published 2015 Sep 24. doi:10.3389/fpsyg.2015.01432</p>
+<p>De Luca M, Pontillo M, Primativo S, Spinelli D, Zoccolotti P. The eye-voice lead during oral reading in developmental dyslexia. Front Hum Neurosci. 2013;7:696. Published 2013 Nov 6. doi:10.3389/fnhum.2013.00696</p>
+<p>Buswell G. T. (1921). The relationship between eye-perception and voice-response in reading. J. Educ. Psychol. 12, 217–227 10.1037/h0070548 [CrossRef] [Google Scholar]</p>
+<p>Tiffin J., Fairbanks G. (1937). An eye-voice camera for clinical and research studies. Psychol. Monogr. 48, 70–77 [Google Scholar]</p>
+</section>
+</section>
+<section id="implementation">
+<span id="id1"></span><h2>Implementation<a class="headerlink" href="#implementation" title="Permalink to this headline"></a></h2>
+<p>To calculate the EVS and its variation during the reading simulation, it is important to first determine the necessary input(s) that we will need and any data processing steps along the way.</p>
+<p>The actual EVS implementation can be divided into two main, distinct steps:</p>
+<ul class="simple">
+<li><p>Aligning the recording from the simulation with the text being read so to fix the duration during which the individual is reading each pronounced word.</p></li>
+<li><p>Associating each fixation already calculated with the corresponding word from the text being read.</p></li>
+</ul>
+<p>We will first begin by introducing the third-party service that we will be using for the audio-text alignment named MAUS, its principal and overall premise and then move on to explaining the algorithm that we developed and eventually integrated in the application.</p>
+</section>
+<section id="maus">
+<span id="id2"></span><h2>MAUS<a class="headerlink" href="#maus" title="Permalink to this headline"></a></h2>
+<section id="what-is-maus">
+<h3>What is MAUS?<a class="headerlink" href="#what-is-maus" title="Permalink to this headline"></a></h3>
+<p>Munich Automatic Segmentation System is a tool developed in the Technical University in Munich used to automatically find the correlation between linguistic categories (e.g., word, syllable, phone) and corresponding signals (e.g., acoustic signal, spectrum, articulatory signal, neuronal signals)        and segment the latter accordingly.
+<a class="reference external" href="https://www.bas.uni-muenchen.de/Bas/BasMAUS.html">official documentation</a> .</p>
+</section>
+<section id="the-aim-from-maus">
+<h3>The aim from MAUS<a class="headerlink" href="#the-aim-from-maus" title="Permalink to this headline"></a></h3>
+<p>It was developed to allow the segmentation large amounts of data in a relatively short time to allow research and development in the areas of speech processing to be faster and more efficient without having to listen and manually segment the signals.</p>
+</section>
+<section id="how-it-works">
+<h3>How it works<a class="headerlink" href="#how-it-works" title="Permalink to this headline"></a></h3>
+<p>MAUS require a text and an audio file as inputs. The text input part will go through two transformations:</p>
+<ul class="simple">
+<li><p>The first is the normalization: remove all punctuation and numbers within the text.</p></li>
+<li><p>The second is the pronunciation: modify the text according to the expected pronunciation when reading the text. Words are now phonemes i.e.  “please” becomes “pli:z”.</p></li>
+</ul>
+<p>Then, depending on the audio file, the program will calculate all the possible pronunciation variants and generate a probability graph of these variants.</p>
+<p>As a final step, MAUS will look for this path between the phonetic part that are expected and maximize it with the acoustic probabilities.</p>
+<figure class="align-default" id="mausexample">
+<a class="reference internal image-reference" href="_images/Example-of-a-segmentation-labeling-created-by-MAUS.png"><img alt="Example of MAUS automatic segmentation" src="_images/Example-of-a-segmentation-labeling-created-by-MAUS.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">Example of MAUS automatic segmentation <a class="reference external" href="https://infolux.uni.lu/automatic-phonetic-segmentation-for-luxembourgish/">Original Source</a></span><a class="headerlink" href="#mausexample" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>For faster results we will be using the MAUS web service where the input files are uploaded to the BAS CLARIN server, processed by MAUS and the result returned to the local computer.</p>
+<p><strong>Important</strong>
+Note that MAUS is free to use for all individuals. However, it is very much not extensible or by any means not modifiable.  Thus, the result that we will later on mention will be strongly correlated with the precision and accuracy of this system.</p>
+</section>
+</section>
+<section id="evs-algorithm">
+<span id="evsalgorithm"></span><h2>EVS algorithm<a class="headerlink" href="#evs-algorithm" title="Permalink to this headline"></a></h2>
+<p>To determine the eye-voice span variation, we followed the steps depicted in the figure down bellow and explained in detail afterwards.</p>
+<figure class="align-default" id="stepsevs">
+<a class="reference internal image-reference" href="_images/documentation_EVS.png"><img alt="Steps to generate EVS Graph" src="_images/documentation_EVS.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">Steps to generate EVS Graph</span><a class="headerlink" href="#stepsevs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>To integrate the Eye-voice span feature’s code in the existing application, we created a separate class called “EVS” (in EVSGeneration.py) to encapsulate this functionality and to preserve the modularity of the original source code.</p>
+<p>The goal of our class is to generate a graph depicting the EVS variation in time to assess how comfortable the individual is at reading and understanding a certain language.</p>
+<p>This class will be called when the user generates the report corresponding to a specific simulation.</p>
+<p>Now let’s go into a more detailed code review:</p>
+<p>The launch of the entire process is done within the constructor when the “EVS” class is called.</p>
+<p>At this point, the algorithm requires several input variables, which are the following:</p>
+<ul class="simple">
+<li><p>The .txt file that has been read during the simulation.</p></li>
+<li><p>The audio file recorded during the simulation.</p></li>
+</ul>
+<p>After an initialization, the constructor will directly call the “generateGraphLearning” function, this function will take care of the entire process of generating the final graph.</p>
+<p>The following is a detailed explanation of the needed steps that allow us to generate the EVS graph:</p>
+<p>First of all, we start by associating each fixation detected and retained during the simulation with the word(s) in the corresponding word. This way, we can deduce at the specific moment which word is actually being looked at by the user.</p>
+<p>To do so we needed to fetch and use:</p>
+<ul class="simple">
+<li><p>The coordinates of the pixel at the top left of the rectangle that encompasses each word as well as its height and width (from textPosition.csv).</p></li>
+</ul>
+<figure class="align-default" id="boxword">
+<a class="reference internal image-reference" href="_images/box.jpg"><img alt="BoxWord" src="_images/box.jpg" style="width: 60.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Rectangles encompasing words</span><a class="headerlink" href="#boxword" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<ul class="simple">
+<li><p>The coordinates of the centre of each fixation and the timestamp corresponding to this fixation in Milliseconds.</p></li>
+</ul>
+<figure class="align-default" id="fix">
+<a class="reference internal image-reference" href="_images/fix.jpg"><img alt="fix" src="_images/fix.jpg" style="width: 60.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 38 </span><span class="caption-text">Coordinates of the center of each given fixation</span><a class="headerlink" href="#fix" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>From the coordinates of the centre of each fixation, we go through all the bounding boxes of the words of the text read and we check whether the centre of this fixation is located inside one of these boxes.</p>
+<p>If this is the case, then the word is associated with the corresponding fixation and therefore a specific period of time. This way, we can automatically eliminate stray fixations resulting from a sudden change in eye movement.</p>
+<p>To be able to use this data in the final step of our work, we finish this algorithm by saving the data obtained in a csv file “Visualization”. For each page read, we generating the corresponding “Visualization” csv file. Every fixation-word association is given a index that will help us later on with determining the EVS.</p>
+<div class="center docutils container">
+<table class="docutils align-default" id="visualizationexample">
+<caption><span class="caption-number">Table 5 </span><span class="caption-text">visualization.csv Example</span><a class="headerlink" href="#visualizationexample" title="Permalink to this table"></a></caption>
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 40%" />
+<col style="width: 28%" />
+<col style="width: 13%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>word</p></td>
+<td><p>time</p></td>
+<td><p>duration_ms</p></td>
+<td><p>id</p></td>
+</tr>
+<tr class="row-even"><td><p>see</p></td>
+<td><p>0.0,166547</p></td>
+<td><p>166547</p></td>
+<td><p>71</p></td>
+</tr>
+<tr class="row-odd"><td><p>TV</p></td>
+<td><p>0.22000000000025466</p></td>
+<td><p>133238</p></td>
+<td><p>21</p></td>
+</tr>
+<tr class="row-even"><td><p>is</p></td>
+<td><p>0.3830000000002656</p></td>
+<td><p>799425</p></td>
+<td><p>2</p></td>
+</tr>
+<tr class="row-odd"><td><p>Thursday</p></td>
+<td><p>1.2150000000001455</p></td>
+<td><p>999281</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-even"><td><p>Thursday</p></td>
+<td><p>2.481999999999971</p></td>
+<td><p>266475</p></td>
+<td><p>3</p></td>
+</tr>
+<tr class="row-odd"><td><p>is</p></td>
+<td><p>2.780999999999949</p></td>
+<td><p>399712</p></td>
+<td><p>5</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="evs-results">
+<span id="evsresultsobservation"></span><h2>EVS results<a class="headerlink" href="#evs-results" title="Permalink to this headline"></a></h2>
+<p>The “generateTextGrid” function which will call the MAUS webservice which, after injecting our audio file and the read txt file, will return a response file in textgird format which contains audio snippets with words from the text read during the simulation.</p>
+<p>After having retrieved all this information in lists via the “getData” function, we have the necessary data to generate the final graph. The “generateDataGraph” function will check if a word has been looked at in the time interval when the user says a word. If this is the case, we add to our list a map listing the word read, the word seen, the moment and the number of words in advance between the word said and seen using the index field added.</p>
+<p>This map is then passed to the “generateGraph” function, which will generate the EVS variation graphs in time for a chosen simulation and saves them a pngs in the corresponding report folder.</p>
+<figure class="align-default" id="folderevs">
+<a class="reference internal image-reference" href="_images/evs_folder.PNG"><img alt="Folder Containing generated EVS graphs and cvs files" src="_images/evs_folder.PNG" style="width: 60.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 39 </span><span class="caption-text">Folder Containing generated EVS graphs and cvs files</span><a class="headerlink" href="#folderevs" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="evsgraphexample">
+<a class="reference internal image-reference" href="_images/graph_evs.png"><img alt="An exemple of generated EVS graph" src="_images/graph_evs.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 40 </span><span class="caption-text">An exemple of generated EVS graph</span><a class="headerlink" href="#evsgraphexample" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+<section id="evs-observations-et-discussion">
+<span id="evsobservationdiscussion"></span><h2>EVS observations et discussion<a class="headerlink" href="#evs-observations-et-discussion" title="Permalink to this headline"></a></h2>
+<p>In order to test of the application thoroughly, we’ve decided that we have to analyse in depth the results of MAUS web service as well as the post processing we apply to find the EVS values.</p>
+<section id="maus-accuracy-and-stability-evaluation">
+<h3>MAUS Accuracy and Stability evaluation<a class="headerlink" href="#maus-accuracy-and-stability-evaluation" title="Permalink to this headline"></a></h3>
+<section id="first-test-mismatched-text-and-audio-files">
+<h4>First test: Mismatched text and audio files<a class="headerlink" href="#first-test-mismatched-text-and-audio-files" title="Permalink to this headline"></a></h4>
+<p>After sending Mismatched text and audio file to the Web Service, we observed that, firstly, we did not get any errors or warnings from the service and a textgrid file was successfully generated.
+Here we have the comparison between a text and an audio not corresponding on the top and corresponding text and audio with the good audio on the bottom.</p>
+<figure class="align-default" id="evswrongaudio">
+<a class="reference internal image-reference" href="_images/evs-graph-wrong-audio.png"><img alt="evs with wrong audio text" src="_images/evs-graph-wrong-audio.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 41 </span><span class="caption-text">EVS graph Mismatched audio and text</span><a class="headerlink" href="#evswrongaudio" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="evsgraphrightaudio">
+<a class="reference internal image-reference" href="_images/evs-graph-right-audio.png"><img alt="evs graph right audio text" src="_images/evs-graph-right-audio.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 42 </span><span class="caption-text">EVS graph with correctly corresponding audio and text</span><a class="headerlink" href="#evsgraphrightaudio" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>In spite of results that seemed coherent on the obtained Textgrid file we can observe that the calculation of the EVS shows that there was a problem because there should be an equal number of points between the two graphs.</p>
+<p>As we analysed the textgrid even further, the file looked like a “normal” file, in the sense that it had no apparent inconsistencies and words were successfully associated with an interval of.</p>
+<p>After using MAUS’s viewer tool for the TextGrid, only then we were able to see the results were incorrect. In fact, even with mismatch input files, MAUS “forces” the alignment of text with the audio without any actual association between audio signal and phenomes.</p>
+<p>This observation suggests that MAUS is not always reliable if the individual makes lot of pauses reading the text or if an error occurs and an entirely different audio file is instead sent (which is in our case highly unlikely but it is very important to note).</p>
+</section>
+<section id="second-test-stuttering-on-certain-words-or-repeating-certain-words-completely">
+<h4>Second Test: Stuttering on certain words or repeating certain words completely<a class="headerlink" href="#second-test-stuttering-on-certain-words-or-repeating-certain-words-completely" title="Permalink to this headline"></a></h4>
+<p>For this test, we intentionally sent to the MAUS web service, two recordings made by the same person and on the same text but during one of the recordings the person made sure to stutter on some words or fully repeat them.</p>
+<p>The graph on the top represents the text read with stuttering and the text on the bottom represents the text read normally.</p>
+<figure class="align-default" id="evsstutter">
+<a class="reference internal image-reference" href="_images/graph-evs-stutter.png"><img alt="graph evs stutter" src="_images/graph-evs-stutter.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 43 </span><span class="caption-text">EVS Graph with stutter</span><a class="headerlink" href="#evsstutter" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="evsnostutter">
+<a class="reference internal image-reference" href="_images/graph-evs-no-stutter.png"><img alt="graph evs no stutter" src="_images/graph-evs-no-stutter.png" style="width: 100.0%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 44 </span><span class="caption-text">EVS Graph without stutter</span><a class="headerlink" href="#evsnostutter" title="Permalink to this image"></a></p>
+</figcaption>
+</figure>
+<p>We can notice that, on the top image, when the person stutters on the words we manage to have an EVS which passes to zero whereas, on the bottom image, the EVS is higher on average and does not pass by 0.</p>
+<p><strong>Developers</strong>:</p>
+<p>This feature was developed by Nicolas MENUT, Marine LE GALL et Asma NAIFAR - 2021.</p>
+</section>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="eyeTracker.html" class="btn btn-neutral float-left" title="Eye Tracker" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="compilation.html" class="btn btn-neutral float-right" title="Compilation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

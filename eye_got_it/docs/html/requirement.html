@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Requirement &mdash; Eye Got It 5.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-bootstrap.5fd3999ee7762ccc51105388f4a9d115.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Project Organization" href="project.html" />
+    <link rel="prev" title="Action units" href="actionUnits.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> Eye Got It
+            <img src="_static/eye_got_it.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Eye Got It:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="welcome.html">Welcome Windows</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulation.html">Simulation Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="report.html">Report Mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="parameters.html">Parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="database.html">Database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcq.html">MCQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="actionUnits.html">Action units</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical Documentation:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Requirement</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#eye-got-it">Eye Got It</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#doumentation">Doumentation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#package-installation">Package installation</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#eye-tracker-requirement">Eye Tracker Requirement</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#interaction-library">Interaction Library</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sdk-pro">SDK pro</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#compilation">Compilation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pyinstaller">Pyinstaller</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#inno-setup">Inno Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#openface">OpenFace</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="project.html">Project Organization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="folder.html">Folder Content</a></li>
+<li class="toctree-l1"><a class="reference internal" href="machineLearning.html">Machine Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eyeTracker.html">Eye Tracker</a></li>
+<li class="toctree-l1"><a class="reference internal" href="EyeVoiceSpan.html">Eye-voice Span</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compilation.html">Compilation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="simulationTechnical.html">Simulation Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportTechnical.html">Report Technical</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reportValidation.html">Report Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="videoProcess.html">Video processing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcqTechnical.html">MCQ Technical</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Appendix:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="appendix.html">Appendix</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Eye Got It</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Requirement</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/requirement.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="requirement">
+<span id="id1"></span><h1>Requirement<a class="headerlink" href="#requirement" title="Permalink to this headline"></a></h1>
+<section id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline"></a></h2>
+<section id="eye-got-it">
+<h3>Eye Got It<a class="headerlink" href="#eye-got-it" title="Permalink to this headline"></a></h3>
+<div class="center docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 14%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Version used</p></th>
+<th class="head"><p>Website</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Python</p></td>
+<td><p>3.9.4</p></td>
+<td><p><a class="reference external" href="https://www.python.org/">https://www.python.org/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>configparser</p></td>
+<td><p>5.0.2</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/configparser/">https://pypi.org/project/configparser/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>matplotlib</p></td>
+<td><p>3.4.1</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/matplotlib/">https://pypi.org/project/matplotlib/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>numpy</p></td>
+<td><p>1.20.2</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/numpy/">https://pypi.org/project/numpy/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>opencv-python</p></td>
+<td><p>4.5.1.48</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/opencv-python/">https://pypi.org/project/opencv-python/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>PyAudio</p></td>
+<td><p>0.2.11</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/PyAudio">https://pypi.org/project/PyAudio</a></p></td>
+</tr>
+<tr class="row-even"><td><p>PyQt5</p></td>
+<td><p>5.15.4</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/PyQt5/">https://pypi.org/project/PyQt5/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>scikit-learn</p></td>
+<td><p>0.24.2</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/scikit-learn/">https://pypi.org/project/scikit-learn/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>pygrabber</p></td>
+<td><p>0.1</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/pygrabber/0.1/">https://pypi.org/project/pygrabber/0.1/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>You can run (if python is already installed) run Init.py to check if all python dependency are installed.</p>
+</section>
+<section id="doumentation">
+<h3>Doumentation<a class="headerlink" href="#doumentation" title="Permalink to this headline"></a></h3>
+<div class="center docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 39%" />
+<col style="width: 13%" />
+<col style="width: 48%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Version used</p></th>
+<th class="head"><p>Website</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Sphinx (for doc)</p></td>
+<td><p>4.0.2</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/Sphinx/">https://pypi.org/project/Sphinx/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>sphinx-rtd-theme (theme for doc)</p></td>
+<td><p>0.5.2</p></td>
+<td><p><a class="reference external" href="https://pypi.org/search/?q=sphinx-rtd-theme&amp;o=">https://pypi.org/search/?q=sphinx-rtd-theme&amp;o=</a></p></td>
+</tr>
+<tr class="row-even"><td><p>sphinx-panels</p></td>
+<td><p>0.6.0</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/sphinx-panels/">https://pypi.org/project/sphinx-panels/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="package-installation">
+<h3>Package installation<a class="headerlink" href="#package-installation" title="Permalink to this headline"></a></h3>
+<p>To install this package, we use :</p>
+<div class="center docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 17%" />
+<col style="width: 21%" />
+<col style="width: 62%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Version used</p></th>
+<th class="head"><p>Website</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pip</p></td>
+<td><p>21.1</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/pip/">https://pypi.org/project/pip/</a></p></td>
+</tr>
+<tr class="row-odd"><td><p>pip-review</p></td>
+<td><p>1.1.0</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/pip-review/">https://pypi.org/project/pip-review/</a></p></td>
+</tr>
+<tr class="row-even"><td><p>pipwin</p></td>
+<td><p>0.5.1</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/pipwin">https://pypi.org/project/pipwin</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><strong>Important</strong> : The version of python dependencies is only the version available when we developed Eye Got It.</p>
+<p>Example : <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">PyQt5</span></code> .</p>
+<p><strong>Important</strong> : If you have any problem to install Pyaudio, try this:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pipwin</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">pipwin</span> <span class="pre">install</span> <span class="pre">PyAudio</span></code></p></li>
+</ul>
+<p>We use pyinstaller to compile python project in .exe . For more
+Information, please see the section <a class="reference internal" href="compilation.html#compilationexe"><span class="std std-ref">Generate an exe file</span></a> in <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compilation</span></a> section.</p>
+</section>
+</section>
+<section id="eye-tracker-requirement">
+<span id="requirementeyetracker"></span><h2>Eye Tracker Requirement<a class="headerlink" href="#eye-tracker-requirement" title="Permalink to this headline"></a></h2>
+<p>For the Eye Tracker we use 2 SDK provide by Tobii :</p>
+<ul class="simple">
+<li><p>Interaction Library for gaming Eye Tracker.</p></li>
+<li><p>SDK Pro for pro and research Eye Tracker.</p></li>
+</ul>
+<section id="interaction-library">
+<span id="requirementinteractionlibrary"></span><h3>Interaction Library<a class="headerlink" href="#interaction-library" title="Permalink to this headline"></a></h3>
+<p>We use Visual Studio (2019 version) for the Interaction Library c++ code : Please see
+<a class="reference external" href="https://visualstudio.microsoft.com/fr/">https://visualstudio.microsoft.com/fr/</a> .</p>
+<p>To compile the c++, we used the Visual Studio Build Tools (2019 version).</p>
+<p>For more informations, please see the <a class="reference internal" href="eyeTracker.html#eyetrackerinteractionlibrary"><span class="std std-ref">Interaction Library</span></a> section or <a class="reference external" href="https://developer.tobii.com/product-integration/interaction-library/getting-started/">Interaction Library website</a> .</p>
+</section>
+<section id="sdk-pro">
+<span id="requirementsdkpro"></span><h3>SDK pro<a class="headerlink" href="#sdk-pro" title="Permalink to this headline"></a></h3>
+<p>Like SDK Pro is only compatible with python 3.6 (at the moment), you must install python 3.6 if you want to edit and test the script.</p>
+<p>To use with python 3.9, we create an exe file. Please see <a class="reference internal" href="compilation.html#compilationexe"><span class="std std-ref">Generate an exe file</span></a> in <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compilation</span></a> section.</p>
+<p>For more informations, please see the <a class="reference internal" href="eyeTracker.html#eyetrackersdkpro"><span class="std std-ref">SDK Pro</span></a> section or <a class="reference external" href="http://developer.tobiipro.com/">Tobii SDK Pro website</a> .</p>
+</section>
+</section>
+<section id="compilation">
+<span id="requirementcompilation"></span><h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline"></a></h2>
+<section id="pyinstaller">
+<span id="requirementpyinstaller"></span><h3>Pyinstaller<a class="headerlink" href="#pyinstaller" title="Permalink to this headline"></a></h3>
+<p>To generate an exe file for python code, we use Pyinstaller :</p>
+<div class="center docutils container">
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 42%" />
+<col style="width: 14%" />
+<col style="width: 44%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Module</p></th>
+<th class="head"><p>Version used</p></th>
+<th class="head"><p>Website</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>pyinstaller</p></td>
+<td><p>4.3</p></td>
+<td><p><a class="reference external" href="https://pypi.org/project/pyinstaller/">https://pypi.org/project/pyinstaller/</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>We create a spec pyinstaller file for create the exe file, please see <a class="reference internal" href="compilation.html#compilationexe"><span class="std std-ref">Generate an exe file</span></a> in <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compilation</span></a> section for more information.</p>
+</section>
+<section id="inno-setup">
+<span id="requirementinnosetup"></span><h3>Inno Setup<a class="headerlink" href="#inno-setup" title="Permalink to this headline"></a></h3>
+<p>We use also Inno Setup to create an .exe instaler for windows (<a class="reference external" href="https://jrsoftware.org/isinfo.php">https://jrsoftware.org/isinfo.php</a>).</p>
+<p>For more Information, please see the <a class="reference internal" href="compilation.html#compilationinstaller"><span class="std std-ref">Inno Setup Section</span></a> in <a class="reference internal" href="compilation.html#compilation"><span class="std std-ref">Compilation</span></a> section.</p>
+</section>
+</section>
+<section id="openface">
+<h2>OpenFace<a class="headerlink" href="#openface" title="Permalink to this headline"></a></h2>
+<p>For Video processing, we used OpenFace (See <a class="reference external" href="https://github.com/TadasBaltrusaitis/OpenFace">Website</a>).</p>
+<p>Just open and extract openFace.exe in “eye_got_it/OpenFace” folder (we create a compressed part file due to GitHub limit file size).</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="actionUnits.html" class="btn btn-neutral float-left" title="Action units" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="project.html" class="btn btn-neutral float-right" title="Project Organization" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Axel Nougier, Victor Menard.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

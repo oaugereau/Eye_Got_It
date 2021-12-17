@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./eye_got_it",
+        "./eye_got_it/eye_got_it"
+    ]
+}
